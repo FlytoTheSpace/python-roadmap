@@ -1,0 +1,421 @@
+==========================================================================================================
+											Python
+==========================================================================================================
+
+Started on: 13 November 2023
+
+Introduction:
+
+	Python is a high level general-purpose programming language. It uses a multi-paradigm approach, meaning it supports procedural, object-oriented, and some functional programming constructs.
+
+	It was created by Guido van Rossum as a successor to another language (called ABC) between 1985 and 1990, and is currently used on a large array of domains like web development, desktop applications, data science, DevOps, and automation/productivity.
+
+	Python is developed under an OSI-approved open source license, making it freely usable and distributable, even for commercial use. Python's license is administered by the Python Software Foundation.
+
+Basics:
+
+1. Print
+
+	(i) In Python, the `print()` function is used to display information or output to the console. It allows you to output text, variables, or expressions to the standard output, which is usually the console or terminal where your Python program is running.
+
+	(ii) Syntax:
+
+		print(value1, value2, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+
+		(a) `value1, value2, ...`: These are the values or expressions that you want to print. You can provide multiple values separated by commas.
+		(b) `sep=' '`: This parameter specifies the separator between the values. The default is a space (' '), but you can change it to any string.
+
+		(c) `end='\n'`: This parameter defines what to print at the end. The default is a newline character ('\n'), which means a new line is added after the values. You can change it to any string.
+
+		(d) `file=sys.stdout`: This parameter specifies the file where the output will be printed. The default is the standard output (sys.stdout), but you can redirect the output to a different file.
+
+		(e) `flush=False`: This parameter determines if the output stream should be forcibly flushed. The default is `False`, which means it won't be flushed immediately. Flushing is the process of writing the contents of a buffer to the output.
+
+	Here are some examples:
+
+		# Basic usage
+		print("Hello, World!")
+
+		# Printing multiple values
+		name = "John"
+		age = 30
+		print("Name:", name, "Age:", age)
+
+		# Customizing separator and end characters
+		print("One", "Two", "Three", sep=', ', end='!!\n')
+
+		# Redirecting output to a file
+		with open("output.txt", "w") as f:
+		    print("This is written to a file.", file=f)
+
+2. Comments
+
+	(i) Comments in programming are annotations or explanatory notes that are added to the source code to provide information about the code's functionality. Comments are ignored by the compiler or interpreter and are meant for human readers, developers, or anyone else reviewing the code. They help improve code readability, understanding, and maintenance. In Python, comments are initiated using the `#` symbol.
+
+	Here are some key points about comments in Python:
+
+	(ii) Single-Line Comments: The most common way to add a comment in Python is to use the `#` symbol. Anything following the `#` on the same line is treated as a comment.
+
+		# This is a single-line comment
+		print("Hello, World!")  # This is a comment at the end of a line
+
+	(iii) Multi-Line Comments: Python does not have a specific syntax for multi-line comments, but you can use triple-quotes (''' or """) to create multi-line strings, effectively achieving a similar result.
+
+		'''
+		This is a multi-line comment.
+		It spans multiple lines.
+		'''
+
+		print("Hello, World!")
+
+	(iv) Purpose of Comments:
+
+		(a) Comments are used to explain the purpose of code, document functions and classes, provide context for complex algorithms, or leave notes for future maintainers.
+		(b)They are helpful for collaborators and for your future self when returning to the code after some time.
+		
+	(v) Commenting Out Code: Comments are also commonly used to temporarily disable or "comment out" lines of code during testing or debugging.
+
+		# print("This line is commented out for now.")
+
+	(vi) Docstrings: For documenting functions, classes, or modules, Python has a special type of comment called docstrings. Docstrings are enclosed in triple-quotes and are used to provide documentation that can be accessed using tools like `help()` or documentation generators.
+
+		def my_function():
+    	"""
+    	This is a docstring for my_function.
+    	It explains what the function does.
+    	"""
+    	# Function code goes here
+
+3. Variables
+
+	(i) a variable is a named storage location that holds data, and its value can be changed during the execution of a program. Variables are fundamental to almost every programming language, including Python. They allow you to store and manipulate data in your programs.
+
+	Here are some key aspects of variables in Python:
+
+	(ii) Variable Naming 
+		
+		(a) Variable names in Python can consist of letters (both uppercase and lowercase), numbers, and underscores.
+		(b) They must start with a letter or an underscore.
+		(c) Python variable names are case-sensitive (`age` and `Age` are different variables).
+
+	(iii) Variable Assignment:
+
+		(a) You use the assignment operator (=) to assign a value to a variable.
+		(b) The data type of a variable is determined dynamically based on the assigned value.
+
+		for Example :-
+
+			age = 25  # The variable 'age' now holds the value 25
+			name = "John"  # The variable 'name' now holds the string "John"
+
+	(iv) Data Types (Quick Overview):
+
+		Variables can hold different types of data, such as integers, floating-point numbers, strings, lists, dictionaries, and more.
+
+		Python is dynamically typed, meaning you don't need to explicitly declare the type of a variable.
+
+
+			x = 10         # Integer
+			y = 3.14       # Float
+			message = "Hello, World!"  # String
+			is_student = True  # Boolean
+
+	(v) Variable Reassignment: You can change the value of a variable by assigning a new value to it.
+
+		age = 25
+		age = 30  # Variable 'age' is reassigned with a new value
+
+	(vi) Variable Use in Expressions: Variables can be used in mathematical expressions and other operations.
+
+		width = 5
+		height = 10
+		area = width * height  # Variable 'area' is assigned the result of the multiplication
+	
+	(vii) Printing Variables: You can display the value of a variable using the `print()` function.
+
+		name = "Alice"
+		print("Hello, " + name)
+
+	(viii) Reserved Words: Avoid using Python keywords and reserved words as variable names.
+
+		# Incorrect usage
+		class = "Python"
+	
+4. Data Types
+
+	(i) In Python, data types are classifications that specify which type of value a variable can hold. Python is a dynamically-typed language, which means that you don't need to explicitly declare the data type of a variable. The interpreter infers the data type based on the value assigned to the variable. 
+	
+	Here are some of the main data types in Python:
+
+	(ii) Numeric Types:
+
+		(a) int (integer): Represents whole numbers without any decimal points.
+
+			x = 10
+
+		(b) float (floating-point): Represents numbers with decimal points.
+
+			y = 3.14
+
+		(c) complex: Represents complex numbers with a real and an imaginary part.
+
+			z = 2 + 3j
+
+	(iii) String Type: str (string): Represents sequences of characters enclosed in single (''), double (" "), or triple (''' or """) quotes.
+
+		message = "Hello, World!"
+
+	(iv) Boolean Type: bool (boolean): Represents the values True or False, typically used in conditional statements.
+
+		is_true = True
+		is_false = False
+
+	(v) Sequence Types:
+
+		(a) `list`: Represents an ordered collection of elements. Elements can be of different data types.
+
+			my_list = [1, 2, 3, "four", 5.0]
+
+		(b) tuple: Similar to a list but immutable, meaning you cannot modify its elements after creation.
+
+			my_tuple = (1, 2, 3, "four", 5.0)
+
+		(c) range: Represents an immutable sequence of numbers often used in loops.
+
+			my_range = range(5)
+
+	(vi) Set Types:
+
+		(a) set: Represents an unordered collection of unique elements.
+
+			my_set = {1, 2, 3, 3, 4}
+
+		(b) frozenset: Similar to a set but immutable.
+
+			my_frozenset = frozenset({1, 2, 3})
+
+	(vii) Mapping Type: dict (dictionary): Represents an unordered collection of key-value pairs.
+
+		my_dict = {"name": "John", "age": 30, "city": "New York"}
+
+	(viii) None Type: Represents Null.
+
+		my_variable = None
+
+	(ix) Binary Types:
+		
+		(a) bytes: Represents a sequence of bytes.
+
+			my_bytes = b"hello"
+
+		(b) bytearray: Similar to bytes but mutable.
+
+			my_bytearray = bytearray([65, 66, 67])
+
+		(c) memoryview: Represents a view of the memory occupied by an object.
+
+			my_memoryview = memoryview(b"abc")
+
+	Related Functions:
+
+	(x) The `type()` function in Python is used to determine the type of an object or variable. It returns the type of the object as a type object, which can be used to compare against known types or to dynamically check the type of an object at runtime.
+
+		(a) Syntax:
+
+			type(object)
+
+		Here are a few examples demonstrating the use of the type() function:
+
+		(b) Determine the Type of a Variable:
+
+			x = 10
+			y = "Hello, World!"
+			z = [1, 2, 3]
+
+			print(type(x))  # <class 'int'>
+			print(type(y))  # <class 'str'>
+			print(type(z))  # <class 'list'>
+
+5. Operators
+
+	(i) Arithmetic Operators
+
+		(a) Addition `+`: Adds two numbers together.
+
+			result = 5 + 3  # result is 8
+
+		(b) Subtraction `-`: Subtracts the right operand from the left operand.
+
+			result = 10 - 4  # result is 6
+
+		(c) Multiplication `*`: Multiplies two numbers.
+
+			result = 3 * 4  # result is 12
+
+		(d) Division `/`: Divides the left operand by the right operand. The result is always a floating-point number.
+
+			result = 15 / 3  # result is 5.0
+
+		(e) Floor Division `//`: Works the same Division but returns An Integer instead of a Decimal/Floating Number
+
+			result = 15 // 3  # result is 5
+
+		(f) Modulus `%`: Returns the remainder of the division of the left operand by the right operand.
+
+			result = 17 % 5  # result is 2
+
+		(g) Exponentiation `**`: Raises the left operand to the power of the right operand.
+
+	(ii) Assignment Operators
+
+		(a) Equivalent `=`: Assigns the value on the right side to the left side.
+			
+			(I) For example when writing `x = 5`, `x` represents the value on the right side of the operator which in this case is `5` 
+
+		(b) Addition Assignment `+=`: Adds the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			x = 5
+			x += 3  # Equivalent to x = x + 3, result is 8
+
+		(c) Subtraction Assignment `-=`: Subtracts the value from the left side to the right side of the Operator and Assigns the value to the left side of the Operator.
+
+			y = 10
+			y -= 4  # Equivalent to y = y - 4, result is 6
+
+		(d) Multiplication Assignment `*=`: Multiplies the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			z = 3
+			z *= 4  # Equivalent to z = z * 4, result is 12
+
+		(e) Division Assignment `/=`: Divides the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			w = 15
+			w /= 3  # Equivalent to w = w / 3, result is 5.0
+		
+		(f) Floor Division Assignment `//=`: Divides the value on the right to the left side of the Operator and converts it into an Integer instead of a Floating Number and then Assigns the value to the left side of the Operator.
+
+			a = 17
+			a //= 5  # Equivalent to a = a // 5, result is 3
+
+		(g) Modulus Assignment `%=`: Divides the value on the right to the left side of the Operator and Assigns the Remainder Value to the left side of the Operator.
+
+			b = 17
+			b %= 5  # Equivalent to b = b % 5, result is 2
+
+		(h) Exponentiation Assignment `**=`: Powers the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			c = 2
+			c **= 3  # Equivalent to c = c ** 3, result is 8
+
+6. Type casting
+
+	(i) Typecasting, also known as type conversion or type coercion, refers to the process of changing the data type of a variable or value from one type to another. In Python, this can be done explicitly using built-in functions or implicitly in certain situations. Here are the main aspects of typecasting in Python:
+	
+	(ii) Explicit Typecasting: 
+		
+		(a)
+		(b)
+		(c)
+		(d)
+		(e)
+		(f)
+		(g)
+	(iii)
+. pip
+
+	(i) `pip` is the package installer for Python. It's a command-line tool that allows you to install, upgrade, and manage Python packages and dependencies. The name "pip" stands for "Pip Installs Packages" or "Pip Installs Python."
+
+	Here are some common use cases for the pip command:
+
+	(ii) Installing a Package: To install a Python package, you use the following command:
+
+		pip install package_name
+
+		(a) For example, to install the `requests` package, you would run:
+
+		pip install requests
+
+	(iii) Installing a Specific Version of a Package: You can specify a particular version of a package to install:
+
+		pip install package_name==1.2.3
+
+		(a) This installs version 1.2.3 of the specified package.
+
+	(iv) Upgrading a Package: To upgrade an already installed package to the latest version, you use the `--upgrade` (or `-U`) option:
+
+		pip install --upgrade package_name
+
+		(a) for example:
+		
+		pip install --upgrade requests
+
+	(v) Uninstalling a Package: To uninstall a package, you can use the `uninstall` command:
+
+		pip uninstall package_name
+
+		(a) for example:
+
+		pip uninstall requests
+
+	(vi) Listing Installed Packages: You can list all installed packages and their versions:
+
+		pip list
+
+	(vii) Installing Packages from Requirements File: You can install packages listed in a `requirements.txt` file:
+
+		pip install -r requirements.txt
+
+	(viii) Freezing Requirements: You can generate a `requirements.txt` file with the list of installed packages and their versions:
+
+		pip freeze > requirements.txt
+
+	(ix) Installing Packages from Version Control: Pip can install packages directly from version control repositories like Git or Mercurial:
+
+		pip install git+https://github.com/user/repo.git
+	
+	(x) Searching for Packages: You can search for packages on the Python Package Index (PyPI) using:
+
+		pip search query
+
+	(xi) Custom Package Sources: Pip supports installing packages from custom sources, such as private repositories.
+
+. Modules
+
+	(i) a module is a file containing Python definitions and statements. The file name is the module name with the suffix .py added. Modules allow you to organize Python code logically into reusable files, making it easier to manage and maintain your codebase. They provide a way to encapsulate code, variables, and functions into separate units, promoting modularity and code reusability.
+
+	Here are some key concepts related to Python modules:
+
+	(ii) Creating a Module: To create a module, you simply write your Python code in a file with a .py extension. For example, if you have a file named `my_module.py`, you can use its contents as a module in other Python scripts.
+
+	(iii) Importing Modules: You can use the `import` keyword to bring the definitions from a module into your current script. For example:
+
+		import my_module
+
+		(a) After importing, you can use functions, variables, or classes from `my_module` by referencing them as `my_module.function_name` or `my_module.variable_name`.
+
+	(iv) Importing Specific Items: Instead of importing the entire module, you can import specific functions or variables using the `from` keyword:
+
+		from my_module import some_function, some_variable
+		some_function()
+
+	(v) Executing Code Only on Module Run: You can use the `if __name__ == "__main__":` construct to specify code that should only run when the module is executed directly, not when it's imported elsewhere. This allows you to have both reusable functions and executable code in the same module.
+
+	(vi) Standard Library Modules: Python comes with a rich set of standard library modules that provide a wide range of functionalities. You can use them by importing them into your scripts. Examples include `math`, `os`, `random`, and many more.
+
+	Here's an Example
+
+		# File: my_module.py
+		def greet(name):
+		    print(f"Hello, {name}!")
+
+		if __name__ == "__main__":
+		    # This code will only run when the module is executed directly
+		    print("This is my_module being run directly.")
+
+
+		# File: main_script.py
+		import my_module
+
+		my_module.greet("Alice")
+		
+		In this example, `main_script.py` imports the greet function from `my_module.py` and uses it to greet `Alice`. The code within the `if __name__ == "__main__"`: block in `my_module.py` will only execute if `my_module.py` is run directly, not when it's imported by other scripts.
