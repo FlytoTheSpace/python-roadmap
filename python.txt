@@ -165,16 +165,184 @@ Basics:
 
 		message = "Hello, World!"
 
-	(iv) Boolean Type: bool (boolean): Represents the values True or False, typically used in conditional statements.
+		(a) Strings can be enclosed using:
+
+			(I) a set of single quotes
+
+				a = 'Hello, World'
+				
+			(II) a set of double quotes
+
+				a = 'Hello, World'
+
+			(III) a triple of single quotes (Supports multiline Strings)
+
+				a = '''Hello, World'''
+
+			(IV) a triple of double quotes (Supports multiline Strings)
+
+				a = """Hello, World"""
+
+		(b) Check if sub-string exists in a String, using `in` keyword (Returns Boolean)
+
+			(A) Syntax:
+
+				<sub-string> in <Strug>
+
+			"Worl" in "Hello, World" #True
+			"llo" in "Hello, World" #True
+			"Hello" in "Hello, World" #True
+
+		(c) Functions of String
+			
+			(I) `len(String)`: prints the length of the string
+
+				len("world"); # 5
+
+			(II) `String.capitalize()`: capitalizes the first letter of the String and (returns)
+
+				"world".capitalize(); # `World`
+
+			(III) `String.casefold()`: optimizes for use (returns)
+
+				"Hello, World".capitalize(); # `hello, world`
+
+			(IV) `String.upper()`: All Characters Uppercase (returns)
+
+				"World".upper(); # `WORLD`
+
+			(V) `String.lower()`: All Characters Lowercase (returns)
+
+				"World".lower(); # `world`
+
+			(VI) `String.rstrip(<character>)`: Remove all of the Specific Trailing Characters (returns)
+
+				"???World???".rstrip('?'); # `???world`
+
+			(VII) `String.replace(<this to>, <this>)`: Replace All The Matching Characters Lowercase (returns)
+
+				"World".upper(); # `world`
+			
+			(VIII) `String.split(<split by>)`: a list of strings separated by a the given string (returns)
+
+				"World".upper(); # `world`
+				
+			(IX) `String.center(<number of spaces>)`: adds number of space in the begging of the string (returns)
+
+				"World".center(20); 
+				#                    world
+
+			(X) `String.count(<character/word>)`: how many times a character/word occurs in the string (returns)
+
+				"hello world, world".count('world') # 2;
+
+			(XI) `String.startswith(<character/word>, <start>, <end>)`: does the string or substring starts with the given character/word (returns boolean)
+
+				"hello world".startswith('hello') # true;
+
+			(XII) `String.endswith(<character/word>, <start>, <end>)`: does the string or substring ends with the given character/word (returns boolean)
+
+				"hello world world".endswith('world') # true;
+
+			(XIII) `String.find(<character/word>)`: returns the index of the first character/word in the string (returns)
+
+				"Hello, world".find('world'); # 7
+				# returns -1 if it doesn't find one
+
+			(XIV) `String.index(<character/word>)`: returns the index of the first character/word in the string (returns)
+
+				"Hello, world".find('world'); # 7
+				# throws error if it doesn't find one
+
+			(XV) `String.isalnum()`: checks if all the characters in the String are in encoding Base64 or Not (returns boolean)
+
+				"Hello, world".isalnum('world'); # false
+
+				(A) Base64 Consists of:
+
+				    I. Uppercase letters (26 characters): A to Z
+    				II. Lowercase letters (26 characters): a to z
+    				III. Digits (10 characters): 0 to 9
+    				IV. Two extra characters: typically, these are `+` and `/`
+
+			(XVI) `String.isalpha()`: checks if all the characters in the String are in encoding Base62 or Not (returns boolean)
+
+				"Hello world".isalpha('world'); # true
+
+				(A) Base62 Consists of:
+
+				    I. Uppercase letters (26 characters): A-Z
+    				II. Lowercase letters (26 characters): a-z
+
+			(XVII) `String.islower()`: checks if all the characters in the String are in lowercase or Not (returns boolean)
+
+				"hello world".islower('world'); # true
+
+			(XVIII) `String.isupper()`: checks if all the characters in the String are in uppercase or Not (returns boolean)
+
+				"Hello world".isupper('world'); # false
+
+			(XIX) `String.isprintable()`: checks if all the characters in the String are printable or Not (returns boolean)
+
+				"Hello world".isprintable('world'); # true
+				"Hello world".isprintable('world \n'); # false (backslash is an escape sequence character, it's not printable)
+
+			(XX) `String.isspace()`: checks if the string contains white spaces (returns boolean)
+
+				"Hello world".isspace('Hello World'); # true (returns true even if it's indent)
+				"Hello world".isspace('Hello-World'); # false
+
+			(XXI) `String.istitle()`: checks if character of every word in the string is capital (returns boolean)
+
+				"Hello World".istitle('Hello World'); # true
+				"Hello world".istitle('Hello-World'); # false
+
+			(XXII) `String.title()`: Capatilizes the first letter of every word in the String (returns)
+
+				"hello, world".title(); # `Hello, World`
+
+	(iv) Boolean Type: bool (boolean):
+		
+		(a) Represents the values True or False, typically used in conditional statements.
 
 		is_true = True
 		is_false = False
 
 	(v) Sequence Types:
 
-		(a) `list`: Represents an ordered collection of elements. Elements can be of different data types.
+		(a) `list`:
+			
+			(I) `list` Represents an ordered collection of elements. Elements can be of different data types.
 
-			my_list = [1, 2, 3, "four", 5.0]
+				my_list = [1, 2, 3, "four", 5.0]
+
+			(II) It's elements can only be accesed through their position in Index.
+
+				my_list = ["Hello", "World", 72, True, 5.0]
+
+				print( my_list[0] ) # "Hello"
+				print( my_list[1] ) # "World"
+				print( my_list[2] ) # 72
+				print( my_list[3] ) # True
+				print( my_list[4] ) # 5.0
+				# In Reverse
+				print( my_list[-1] ) # 5.0
+				print( my_list[-2] ) # True
+				print( my_list[-3] ) # 72
+				print( my_list[-4] ) # "World"
+				print( my_list[-5] ) # "Hello"
+				# Range
+
+
+			(III) Check if value exists in the List, using `in` keyword (Returns Boolean)
+
+				(A) Syntax:
+
+					<value> in <list>
+
+				my_list = ["Hello", "World"];
+
+				"Hello" in my_list #True
 
 		(b) tuple: Similar to a list but immutable, meaning you cannot modify its elements after creation.
 
@@ -196,7 +364,13 @@ Basics:
 
 	(vii) Mapping Type: dict (dictionary): Represents an unordered collection of key-value pairs.
 
-		my_dict = {"name": "John", "age": 30, "city": "New York"}
+		my_dict = {
+			"name": "John",
+			"age": 30,
+			"city": "New York"
+		}
+
+		(in JavaScript and some other languages this is called an 'Object' )
 
 	(viii) None Type: Represents Null.
 
@@ -256,9 +430,9 @@ Basics:
 
 			result = 15 / 3  # result is 5.0
 
-		(e) Floor Division `//`: Works the same Division but returns An Integer instead of a Decimal/Floating Number
+		(e) Floor Division `#`: Works the same Division but returns An Integer instead of a Decimal/Floating Number
 
-			result = 15 // 3  # result is 5
+			result = 15 # 3  # result is 5
 
 		(f) Modulus `%`: Returns the remainder of the division of the left operand by the right operand.
 
@@ -306,22 +480,679 @@ Basics:
 
 			c = 2
 			c **= 3  # Equivalent to c = c ** 3, result is 8
+	
+	(iii) Comparison Operators
 
+		(Note: Comparison Operators return Boolean)
+
+		Comparison operators in Python are used to compare values and return a Boolean result (True or False). These operators are frequently used in conditional statements and loops to make decisions based on the relationship between values. Here are the main comparison operators in Python:
+
+    	(a) Equal `==`: Checks if two values are equal. 
+
+		    x = 5
+		    y = 5
+		    result = (x == y)  # True
+
+		(b) Not Equal `!=`: Checks if two values are not equal.
+
+		    a = 10
+		    b = 20
+		    result = (a != b)  # True
+
+		(c) Greater Than `>`: Checks if the value on the left is greater than the value on the right.
+
+		    m = 15
+		    n = 10
+		    result = (m > n)  # True
+
+		(d) Less Than `<`: Checks if the value on the left is less than the value on the right.
+
+		    p = 8
+		    q = 12
+		    result = (p < q)  # True
+
+		(e) Greater Than or Equal To `>=`: Checks if the value on the left is greater than or equal to the value on the right.
+
+		    r = 25
+		    s = 20
+		    result = (r >= s)  # True
+
+		(f) Less Than or Equal To `<=`: Checks if the value on the left is less than or equal to the value on the right.
+
+			c = 5
+			d = 5
+			result = (c <= d)  # True
+
+		(g) ternary conditional operator:
+
+			(I) ternary conditional operator doesn't return a boolean, it instead returns user input in a condition is met
+			(II) Syntax:
+				
+				<input> if <condition> else <input>
+
+			(III) The first <input> will be returned If the condition is met, otherwise the next <input> will be returned
+			(IV) Example :-
+
+				age = 20
+
+				criteria = "adult" if (age>=18) else "kid"
+
+				print(criteria) #Prints: `adult`
+
+	(iv) Logical Operators
+
+		(a) `and` Operator: Returns True if both operands are true; otherwise, it returns False. It combines two conditions, and it evaluates to True only when both conditions are met.
+
+			a = 5
+			b = 10
+			result = (a > 0) and (b > 0)  # True, because both conditions are true
+
+		(b) `or` Operator: Returns `True` if at least one of the operands is true; if both are false, it returns False.
+
+			a = -5
+			b = 10
+			result = (a > 0) or (b > 0)  # True, because one of the conditions is true
+
+		(c) `not` Operator: The not operator inverts the truth value of its operand. If the operand is True, it returns False, and if the operand is False, it returns True. It's often used to flip the truth value of a condition.
+
+		 	a = False
+			result = not a  # True, because it inverts the value of a
+
+		(d) Example :-
+
+			age = 25
+			has_license = True
+
+			if age >= 18 and has_license:
+			    print("Eligible to drive a car.")
+			else:
+			    print("Not eligible to drive a car.")
+	
 6. Type casting
 
 	(i) Typecasting, also known as type conversion or type coercion, refers to the process of changing the data type of a variable or value from one type to another. In Python, this can be done explicitly using built-in functions or implicitly in certain situations. Here are the main aspects of typecasting in Python:
 	
-	(ii) Explicit Typecasting: 
+	(ii) Explicit Typecasting: Explicit typecasting is when you manually convert a variable from one data type to another using specific functions. The commonly used functions for explicit typecasting are:
+
+		(b) `int()`: Converts a value to an integer.
+
+			x = int(3.14)  # x is now 3
+
+		(c) `float()`: Converts a value to a floating-point number.
+
+			y = float("10.5")  # y is now 10.5
+
+		(d) `str()`: Converts a value to a string.
+
+			z = str(42)  # z is now the string "42"
+
+		(e) `bool()`: Converts a value to a boolean.
+
+			w = bool(0)  # w is now False
+
+	(iii) Implicit Typecasting: Implicit typecasting, also known as automatic type conversion, occurs automatically during certain operations. Python will attempt to convert the operands to a common type before performing the operation. For example, in arithmetic operations involving different numeric types, Python will promote the operands to the type with the greater precision.
+
+		result = 10 + 3.5  # Implicitly converts 10 to 10.0 before addition
+
+		(a) Typecasting Between Built-in Types: You can perform typecasting between various built-in types
 		
-		(a)
-		(b)
-		(c)
-		(d)
-		(e)
-		(f)
-		(g)
-	(iii)
-. pip
+7. `input( msg:string )` takes user input in the console/terminal and returns it as a string
+
+	userInput = input('Pick a Number between 1-10 >')
+	print("Your Number is ", userInput)
+
+8. Index
+
+	(i) In Python, an index refers to the position of an element within a data structure, such as a string, list, tuple, or other iterable objects. The index is a numerical value that represents the location of an item in the sequence, and it is used to access or modify individual elements.
+
+	(ii) Indexing in Strings:
+		
+		(a) Strings in Python are sequences of characters, and each character has a specific index. The indexing starts from 0 for the first character, 1 for the second character, and so on.
+
+		my_string = "Python"
+		print(my_string[0])  # Output: P
+		print(my_string[2])  # Output: t
+
+	(iii) Negative Indexing:
+
+    	(a) Python supports negative indexing, where -1 refers to the last element, -2 to the second-to-last element, and so forth.
+
+		print(my_string[-1])  # Output: n
+		print(my_string[-3])  # Output: h
+
+	(iv) Indexing in Lists and Tuples:
+    	
+		(a) Lists and tuples are also sequences, and indexing works similarly to strings.
+
+		my_list = [10, 20, 30, 40, 50]
+		print(my_list[1])  # Output: 20
+
+		my_tuple = (1, 2, 3, 4, 5)
+		print(my_tuple[3])  # Output: 4
+
+	(v) Slicing:
+
+    	(a) In addition to indexing, Python supports slicing to extract a portion of a sequence. Slicing is done using the `start:stop:step` syntax.
+
+		my_list = [1, 2, 3, 4, 5]
+		print(my_list[1:4])  # Output: [2, 3, 4]
+
+	(vi) IndexError:
+
+    	(a) Attempting to access an index that is outside the range of the sequence results in an IndexError. It's essential to ensure that the index is valid before accessing it.
+
+		my_list = [1, 2, 3]
+		# print(my_list[5])  # Uncommenting this line would result in an IndexError
+
+	(vii) Range of Indices:
+
+    	(a) If the specified range in slicing goes beyond the boundaries of the sequence, Python gracefully handles it. It returns the valid portion of the sequence without raising an error.
+
+		my_string = "Python"
+		print(my_string[2:10])  # Output: thon
+
+(Note: The Scope of code in Python is Determined by indetation ('	') before the code rather than brackets, (e.g `()`, `{}`). example:-
+
+	if(age>18):
+		print('You can drive!') #  <--- Inside `If` statement
+	print('Hi!') # <--- Outside `If` statement
+)
+
+9. Condition Expressions
+
+	(i) `if` Statement:
+
+    	(a) The simplest form of a conditional expression. Executes a block of code only if a specified condition is True.
+
+		(b) Syntax (Syntax is way of saying 'Structure')
+
+			if <condition>:
+    			# Code to execute if the condition is True
+			
+			
+			(Note: <condition> has to be a Boolean and if it isn't it'll be converted into a boolean)
+			(Important Note: indetation is Necessary)
+
+		Example:-
+
+			age = 20
+			if age >= 18: # <-- You can wrap condition in Parentheses AKA this --> ' () '
+			    print("You are an adult.")
+
+			
+			# with Condition wrapped in Parentheses
+			age = 20
+			if (age >= 18): # <-- You can wrap condition in Parentheses AKA this --> ' () '
+			    print("You are an adult.")
+
+	(ii) `if-else` Statement:
+
+    	(a) Extends the if statement to provide an alternative action if the if condition is False.
+
+		(b) Syntax:
+
+			if <condition>:
+			    # Code to execute if the condition is True
+			else:
+			    # Code to execute if the condition is False
+
+		Example:-
+
+			age = 15
+			if age >= 18:
+			    print("You are an adult.")
+			else:
+			    print("You are a kid.")
+
+	(iii) elif (else if) Statement:
+
+		(a) Allows for multiple conditions to be checked in sequence.
+    	(b) If the if condition is False, it checks the condition of an elif (else if) block and so on.
+    	(c) You can have multiple elif blocks, but only the first True condition block gets executed.
+
+		(d) Syntax:
+
+			if condition1:
+			    # Code to execute if condition1 is True
+			elif condition2:
+			    # Code to execute if condition2 is True
+			else:
+			    # Code to execute if none of the above conditions are True
+
+		Example:-
+
+			age = 65
+			if age < 18:
+			    print("You are a kid.")
+			elif age < 65:
+			    print("You are an adult.")
+			elif age >= 65:
+			    print("You are a senior citizen.")
+			else:
+			    print("Invalid Age!")
+
+			#Nested Version:
+
+			age = 20
+			has_license = True
+			if age >= 18:
+			    if has_license:
+			        print("You can drive.")
+			    else:
+			        print("You need a driver's license to drive.")
+			else:
+			    print("You are too young to drive.")
+
+	(iv) `match` statement
+
+		(a) The `match` statement in Python, introduced in PEP 634 (Python Enhancement Proposal), is a feature that provides pattern matching. Pattern matching is a way to perform conditional branching based on the structure of data, allowing for more concise and readable code. The match statement was introduced in Python 3.10.
+
+		Here's a basic overview of the match statement:
+
+		(b) Syntax:
+
+			match <expression>:
+		    	case <pattern1>:
+		    	    # Code to execute if expression matches pattern1
+		    	case <pattern2>:
+		    	    # Code to execute if expression matches pattern2
+		    	...
+		    	case _:
+		    	    # Code to execute if none of the patterns match
+
+		(c) Example :-
+
+			number = 5
+		    match number:
+		        case 0:
+		            print("Zero")
+		        case 1 | 2 | 3:
+		            print("Small positive number")
+		        case 4 | 5 | 6:
+		            print("Medium positive number")
+		        case _:
+		            print("Some other number")
+
+			print(result)  # Output: Medium positive number
+
+			(I) The patterns 0, 1 | 2 | 3, 4 | 5 | 6, and _ are used to match specific values or ranges of values. The | symbol is used for a logical `OR` operation within a single case.
+
+		(d) Key Points:
+
+    		(I) Patterns:
+    		    Patterns can include literals, names (variables), sequences, mappings, and combinations of these.
+    		    The case clauses are evaluated from top to bottom, and the first matching pattern is executed.
+		
+    		(II) OR (`|`) in Patterns: The `|` operator can be used to match multiple values in a single case.
+		
+    		(III) Wildcard (_) Pattern: The `_` pattern serves as a wildcard, matching anything. It is often used as a `catch-all` for unmatched cases.
+		
+    		(IV) Deconstruction: Patterns can destructure data structures, making it possible to match elements within sequences or mappings.
+
+				match my_list:
+			    case [a, b, c]:
+			        # Code to execute if my_list is a list with at least three elements
+
+		(e) Extendation:
+
+			(I) `match` statement can be forword extended with `if` statement
+
+			Example :-
+
+				number = 5
+
+		    	match number:
+		    	    case 0:
+		    			print("Your Number is 0")
+		    	    case _ if number < 0:
+		    	        print("Invalid Number")
+		    	    case _ if number < 100:
+		    	        print("Your Number is less than a Hundred")
+
+			print(result)  # Output: Medium positive number
+
+10. Loops
+
+	(i) In programming, a loop is a control structure that allows a set of instructions to be repeated multiple times. Loops are essential for automating repetitive tasks and iterating over collections of data. Python provides two main types of loops: `for` loops and `while` loops.
+
+	(ii) For Loop: A for loop is used to iterate over a sequence (such as a list, tuple, string, or range) or other iterable objects. It executes a block of code for each item in the sequence.
+
+		(a) Syntax (Syntax means how something is written AKA Structure)
+
+			for <variable> in <sequence>:
+		    	# Code to be repeated for each iteration
+
+		(b) Example:
+
+			fruits = ["apple", "banana", "cherry"]
+			for fruit in fruits:
+			    print(fruit)
+
+
+			console:
+
+			apple
+			banana
+			cherry
+
+		(c) Range-Based For Loop:
+
+			(I) Syntax:
+				
+				# with Single Argument
+
+
+				for i in range(<to>):
+			    	# Code here runs <to> Times
+
+
+
+				# with 2 Arguments
+
+
+				
+				for i in range(<from>, <to>): #
+			    	# Code here runs from <from> to <to> Times
+
+
+			for i in range(5):  # Iterates over the range 0 to 4
+			    print(i) # <-- Code here runs 5 Times
+
+
+			Console:
+
+				0
+				1
+				2
+				3
+				4
+
+			(II) with Second Argument:
+
+
+			for i in range(-5, 5):  # Iterates over the range 0 to 4
+			    print(i) # <-- Code here runs 5 Times
+
+
+			Console:
+				-5
+				-4
+				-3
+				-2
+				-1
+				0
+				1
+				2
+				3
+				4
+	
+	(iii) While Loop: A while loop repeatedly executes a block of code as long as a specified condition is true. It is suitable when you don't know in advance how many times the loop needs to run.
+
+		(a) Syntax:
+
+			while condition:
+			    # Code to be repeated as long as the condition is true
+
+		(b) Example:-
+
+			count = 0
+			while count < 5:
+			    print(count)
+			    count += 1
+
+			Console:
+
+				0
+				1
+				2
+				3
+				4
+
+			(WARNING: If the condition doesn't become false at some point, It can lead to unintentional Infinite Loops)
+
+			(I) Extendation: While Loops can be extended with `else` statement to run code once when the loop end or condition doesn't met:
+
+			count = 3
+			while (count <= 5):
+			    print(count)
+			    count += 1
+			else:
+				print('Loop Ended')
+
+			Console:
+
+				3
+				4
+				5
+				Loop Ended
+		
+		(c) Infinite Loop: Be cautious with while loops to avoid creating infinite loops (loops that never end). Make sure to include a mechanism to break out of the loop when the desired condition is no longer true.
+
+		while True:
+		    user_input = input("Enter 'exit' to break the loop: ")
+		    if user_input == 'exit':
+		        break
+		
+	(iv) Loop Control Statements:Python provides loop control statements that allow you to manipulate the flow of a loop.
+
+    	(a) break: Terminates the loop prematurely, and control passes to the next statement after the loop.
+
+    	(b) continue: Skips the rest of the code inside the loop for the current iteration and moves to the next iteration.
+
+    	(c) pass: Acts as a placeholder; it does nothing and allows the loop to continue.
+
+		(d) Example:
+
+			for i in range(10):
+    			if i == 3:
+    			    continue
+    			elif i == 8:
+    			    break
+    			else:
+    			    pass
+    			print(i)
+
+
+			Console:
+
+			0
+			1
+			2
+			4
+			5
+			6
+			7
+
+11. Functions:
+
+	(i) Functions in Python are a fundamental aspect of the language, allowing for the encapsulation of code into reusable units. They help in structuring your code, making it more readable, maintainable, and scalable. Here's a comprehensive overview:
+
+	(ii) Definition and Syntax:
+
+		(a) In Python, A function is defined using the `def` (define) keyword, followed by the function name and parentheses (). The parameters (arguments) are placed inside these parentheses. The code block within the function starts with a colon : and is indented.
+		(b) Syntax:
+
+			# Defining Function
+			
+			def <function_name>(parameters...):
+			    # Code block
+			    return result  # Optional
+
+			# Calling (Executing) Function
+
+			<function_name>(parameters...)
+
+	Example:-
+
+		def greet(name):
+		    return f"Hello, {name}!"
+
+		print(greet("James"))  # Output: Hello, James!
+
+		In this example, greet is a function that takes one parameter, name, and returns a greeting string.
+
+	(iii) Types of Functions:
+
+		(a) Built-in Functions: Python comes with many built-in functions like `print()`, `len()`, etc.
+    	(b) User-Defined Functions: Functions that are defined by the user, like the greet function in the example above.
+
+	(iv) Parameters and Arguments:
+
+    	(a) `Parameters`: are variables listed inside the parentheses in the function definition.
+
+			(I) Default Parameter Values: You can specify default values for parameters. If the function is called without an argument for that parameter, it uses the default value.
+
+			def greet(name="World"):
+			    return f"Hello, {name}!"
+
+			print(greet())  # Output: Hello, World!
+			print(greet("Michael"))  # Output: Hello, Michael!
+
+    	(b) `Arguments`: are the values passed to the function when it is called.
+
+			(I) Keyword Arguments: Functions can also be called using keyword arguments, where the caller identifies the arguments by their parameter name.
+
+				def describe_pet(animal, name):
+				    print(f"I have a {animal} named {name}.")
+
+				describe_pet(animal="hamster", name="Harry")  # Order of arguments can be changed
+
+			(II) Arbitrary Arguments:
+
+				(A) To Have a Function take infinite Arguments, you can use arbitrary arguments *args and **kwargs.
+
+	    		(B) *args allows for any number of positional arguments.
+
+					def make_pizza(*toppings):
+					    print("Making a pizza with the following toppings:")
+					    for topping in toppings:
+					        print(f"- {topping}")
+
+					make_pizza("pepperoni", "cheese", "mushrooms")
+
+	    		(C) **kwargs allows for any number of keyword arguments.
+
+					def make_sandwitch(**ingredient):
+					    print('tomato? :', ingredient['tomato'])
+					    print('cabbage? :', ingredient['cabbage'])
+					    print('olives? :', ingredient['olives'])
+					    print('sauce? :', ingredient['sauce'])
+
+					make_sandwitch(tomato=True, cabbage=True, olives=True, sauce="Mayonese")
+
+	(v) Return Values:
+		
+		(a) The return statement is used to exit a function and pass a value back to the caller.
+
+			def square(x):
+			    return x * x
+
+			result = square(4)  # result is 16
+
+	(vi) Scope:
+		
+		(a) Variables declared inside a function are not accessible from outside the function. These are called local variables and have a local scope.
+
+	(vi) Docstrings:
+		
+		(a) Docstrings (documentation strings) serve as the documentation for a function. They are written as the first statement in a function body.
+
+		def add(a, b):
+		    """Return the sum of a and b."""
+		    return a + b
+
+	(vii) `Lambda` Functions:
+		
+		(a) Lambda functions are small anonymous functions, defined using the `lambda` keyword. They can have any number of arguments but only one expression.
+
+		square = lambda x: x * x
+		print(square(5))  # Output: 25
+
+	(viii) `pass` keyword
+		
+		(a) `pass` keyword can be used to leave a Function Empty otherwise it'll thow an error
+
+		# This is throw an Indentation Error
+		def myFunction():
+			
+		a = 1
+		b = 2
+
+		# This won't throw an Error
+		def myFunction():
+			pass
+			
+		a = 1
+		b = 2
+
+	Conclusion:
+
+	Functions in Python are versatile and can be used to simplify complex tasks, reduce redundancy, and increase the clarity of your code. They are a crucial part of writing clean and effective Python code.
+	
+	Built in Functions:
+
+	(ix) `len()` returns length
+
+		a = "Hello, World"
+		
+		print(len(a)) # 12
+		
+	(x) `type()` type of The Value
+
+		a = "Hello, World"
+		b = 12
+		c = 12.5
+		d = False
+
+		print(type(a)) # <class 'str'>
+		print(type(b)) # <class 'int'>
+		print(type(c)) # <class 'float'>
+		print(type(d)) # <class 'bool'>
+
+12. 
+
+Modules
+
+	(i) a module is a file containing Python definitions and statements. The file name is the module name with the suffix .py added. Modules allow you to organize Python code logically into reusable files, making it easier to manage and maintain your codebase. They provide a way to encapsulate code, variables, and functions into separate units, promoting modularity and code reusability.
+
+	Here are some key concepts related to Python modules:
+
+	(ii) Creating a Module: To create a module, you simply write your Python code in a file with a .py extension. For example, if you have a file named `my_module.py`, you can use its contents as a module in other Python scripts.
+
+	(iii) Importing Modules: You can use the `import` keyword to bring the definitions from a module into your current script. For example:
+
+		import my_module
+
+		(a) After importing, you can use functions, variables, or classes from `my_module` by referencing them as `my_module.function_name` or `my_module.variable_name`.
+
+	(iv) Importing Specific Items: Instead of importing the entire module, you can import specific functions or variables using the `from` keyword:
+
+		from my_module import some_function, some_variable
+		some_function()
+
+	(v) Executing Code Only on Module Run: You can use the `if __name__ == "__main__":` construct to specify code that should only run when the module is executed directly, not when it's imported elsewhere. This allows you to have both reusable functions and executable code in the same module.
+
+	(vi) Standard Library Modules: Python comes with a rich set of standard library modules that provide a wide range of functionalities. You can use them by importing them into your scripts. Examples include `math`, `os`, `random`, and many more.
+
+	Here's an Example
+
+		# File: my_module.py
+		def greet(name):
+		    print(f"Hello, {name}!")
+
+		if __name__ == "__main__":
+		    # This code will only run when the module is executed directly
+		    print("This is my_module being run directly.")
+
+
+		# File: main_script.py
+		import my_module
+
+		my_module.greet("Alice")
+		
+		In this example, `main_script.py` imports the greet function from `my_module.py` and uses it to greet `Alice`. The code within the `if __name__ == "__main__"`: block in `my_module.py` will only execute if `my_module.py` is run directly, not when it's imported by other scripts.
+
+pip
 
 	(i) `pip` is the package installer for Python. It's a command-line tool that allows you to install, upgrade, and manage Python packages and dependencies. The name "pip" stands for "Pip Installs Packages" or "Pip Installs Python."
 
@@ -379,43 +1210,22 @@ Basics:
 
 	(xi) Custom Package Sources: Pip supports installing packages from custom sources, such as private repositories.
 
-. Modules
+Built-in Modules
 
-	(i) a module is a file containing Python definitions and statements. The file name is the module name with the suffix .py added. Modules allow you to organize Python code logically into reusable files, making it easier to manage and maintain your codebase. They provide a way to encapsulate code, variables, and functions into separate units, promoting modularity and code reusability.
+	(i) `time`
 
-	Here are some key concepts related to Python modules:
+		(a) `time.strftime(<String>)`: Returns The Current with the Provided String Format
 
-	(ii) Creating a Module: To create a module, you simply write your Python code in a file with a .py extension. For example, if you have a file named `my_module.py`, you can use its contents as a module in other Python scripts.
-
-	(iii) Importing Modules: You can use the `import` keyword to bring the definitions from a module into your current script. For example:
-
-		import my_module
-
-		(a) After importing, you can use functions, variables, or classes from `my_module` by referencing them as `my_module.function_name` or `my_module.variable_name`.
-
-	(iv) Importing Specific Items: Instead of importing the entire module, you can import specific functions or variables using the `from` keyword:
-
-		from my_module import some_function, some_variable
-		some_function()
-
-	(v) Executing Code Only on Module Run: You can use the `if __name__ == "__main__":` construct to specify code that should only run when the module is executed directly, not when it's imported elsewhere. This allows you to have both reusable functions and executable code in the same module.
-
-	(vi) Standard Library Modules: Python comes with a rich set of standard library modules that provide a wide range of functionalities. You can use them by importing them into your scripts. Examples include `math`, `os`, `random`, and many more.
-
-	Here's an Example
-
-		# File: my_module.py
-		def greet(name):
-		    print(f"Hello, {name}!")
-
-		if __name__ == "__main__":
-		    # This code will only run when the module is executed directly
-		    print("This is my_module being run directly.")
+			if(int( time.strftime('%H')) >= 4 and int(time.strftime('%H')) < 9 ):
+    		print('Good Morning!')
+			elif(int( time.strftime('%H')) >= 9 and int(time.strftime('%H')) < 15 ):
+			    print('Good AfterNoon!')
+			elif(int( time.strftime('%H')) >= 15 and int(time.strftime('%H')) < 19 ):
+			    print('Good Evening!')
+			elif(int( time.strftime('%H')) >= 20 and int(time.strftime('%H')) <= 23 ):
+			    print('Good Night!')
 
 
-		# File: main_script.py
-		import my_module
-
-		my_module.greet("Alice")
-		
-		In this example, `main_script.py` imports the greet function from `my_module.py` and uses it to greet `Alice`. The code within the `if __name__ == "__main__"`: block in `my_module.py` will only execute if `my_module.py` is run directly, not when it's imported by other scripts.
+			(I) '%H' represents the current Hour in 24Hour Clock instead of AM/PM
+			(II) '%M' represents the current Minute
+			(III) '%S' represents the current Second
