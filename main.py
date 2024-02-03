@@ -24,7 +24,6 @@ elif (age<20):
     print("lol you're just a kid");
 else:
     print("error");
-"""
 
 # import time
 # # print(time.strftime('%H:%M:%S'))
@@ -56,16 +55,60 @@ else:
 
 # make_sandwitch(tomato=True, cabbage=True, olives=True, sauce="Mayonese")
 
-my_list = ["Hello", "World", 72, True, 5.0]
 
-print( my_list[0] ) # "Hello"
-print( my_list[1] ) # "World"
-print( my_list[2] ) # 72
-print( my_list[3] ) # True
-print( my_list[4] ) # 5.0
-# In Reverse
-print( my_list[-1] ) # 5.0
-print( my_list[-2] ) # True
-print( my_list[-3] ) # 72
-print( my_list[-4] ) # "World"
-print( my_list[-5] ) # "Hello"
+# my_tuple = (1,5,4)
+
+# my_list = list(my_tuple)
+
+# # Modifications:
+# my_list[1] = 3
+# my_list.insert(1, 2)
+# my_list.append(5)
+
+# my_tuple = tuple(my_list)
+# print(my_tuple)
+
+Introduction = "Hi, my name's {} and I'm {}"
+
+print(Introduction.format("James", 27))
+# "Hi, my name's James and I'm 27"
+
+# You define order of Insertion in The String (Index):
+
+Introduction = "Hi, my name's {1} and I'm {0}"
+			
+print(Introduction.format(27, "James")) # Order of Insertion has changed
+# "Hi, my name's James and I'm 27"
+
+
+f"this is a set of curly brackets inside f-string: {{}} "
+
+"""
+def factorial(n):
+    if(1==n or 0==n):
+        return 1
+    else:
+        return n*factorial(n-1)
+
+# print(factorial(5))
+
+# def myFunction(a, b):
+	# if(a<b):
+		# print(a)
+		# myFunction(a+1, b)
+	# else:
+		# print("exit!")
+    # 
+# 
+# myFunction(4,12)
+with open('./test.txt', 'r') as file:
+    
+    print(file.read()) # 1234567890
+    
+with open('./test.txt', 'r') as file:
+    
+    print(file.read(5)) # 12345
+    
+    file.seek(7) # Changes The Reading Position to 7
+    
+    print(file.read(3)) # 890
