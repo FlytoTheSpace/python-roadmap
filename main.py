@@ -101,14 +101,34 @@ def factorial(n):
     # 
 # 
 # myFunction(4,12)
-with open('./test.txt', 'r') as file:
-    
-    print(file.read()) # 1234567890
-    
-with open('./test.txt', 'r') as file:
-    
-    print(file.read(5)) # 12345
-    
-    file.seek(7) # Changes The Reading Position to 7
-    
-    print(file.read(3)) # 890
+
+# class Person:
+#     def __init__ (self, name, age):
+#         self.name = name
+#         self.age = age
+
+# class Student (Person): # Inherit from Person
+#     def  __init__ (self, name, age, ID):
+        
+#         super().__init__(name, age) # Calling The Constructor of the Parent Class
+        
+#         self.studentid = ID
+
+# student = Student("James", 19, 20210563597)
+
+# print(student.name) # James
+# print(student.age) # 19
+# print(student.studentid) # 20210563597
+
+
+# import argparse
+
+# # Create parser object
+# parser = argparse.ArgumentParser(description="Introduction") # Create a Method for adding Arguments
+
+# parser.add_argument('name', help="Name of The User") # Argument
+# parser.add_argument('--msg', '-m', default="Hello", help="Name of The User") # A Flag for special Arguments
+
+# args = parser.parse_args() # Get all The Arguments
+
+# print(f"{args.msg}, My name's {args.name}!")

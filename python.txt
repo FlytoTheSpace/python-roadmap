@@ -1779,19 +1779,17 @@ Basics:
 				
 			print(factorial(5)) # 120
 
-	Conclusion:
-
-	Functions in Python are versatile and can be used to simplify complex tasks, reduce redundancy, and increase the clarity of your code. They are a crucial part of writing clean and effective Python code.
-	
 	Built in Functions:
 
-	(x) `len(<Variable>)` returns length
+	(x) `help(<any>)` takes a Dict/Class/Methods and returns a Explaination about that even including custom Methods/Classes/Dictionaries
+
+	(xi) `len(<Variable>)` returns length
 
 		a = "Hello, World"
 		
 		print(len(a)) # 12
 		
-	(xi) `type(<Variable>)` type of The Value
+	(xii) `type(<Variable>)` type of The Value
 
 		a = "Hello, World"
 		b = 12
@@ -1803,7 +1801,7 @@ Basics:
 		print(type(c)) # <class 'float'>
 		print(type(d)) # <class 'bool'>
 
-	(xii) `enumerate(<Variable>, <index start from?>)`: It's used in Loops to Indentify the Index of values inside The Variable
+	(xiii) `enumerate(<Variable>, <index start from?>)`: It's used in Loops to Indentify the Index of values inside The Variable
 
 		(a) Syntax:
 
@@ -1856,7 +1854,9 @@ Basics:
 			Index: {11} and Value: {685564}
 			Index: {12} and Value: {3}
 		
-	(xiii) `dir(<Value>)`: Returns The Structure of The Value as a List 
+	(xiv) `dir(<Value>)`: Returns The Structure of The Value as a List 
+
+Section: Modules
 
 12. PEP8
 
@@ -1997,90 +1997,9 @@ Basics:
 
 	(xxi) These principles, while not rules, guide Python developers in writing code that's consistent with the ethos of the Python community. The Zen of Python reflects a preference for simplicity and clarity, which has helped shape Python into a language that's readable, maintainable, and accessible to beginners and experienced programmers alike.
 
-14. try..except
-	
-	(i) the `try..except` statement is used to handle exceptions or errors that may occur during the execution of a block of code. It allows you to anticipate and gracefully handle errors, preventing the program from crashing.
+Section: Modules
 
-	(ii) Syntax:
-
-		try:
-		    <code to catch error/exception in>
-		except <ExceptionType> as <error>:
-		    <Code to handle the error/exception>
-
-    (iii) The code inside the `try` block is executed.
-    (iv) If an exception occurs during the execution of the `try` block, the code in the corresponding `except` block is executed.
-    (v) If no exception occurs, the `except` block is skipped.
-
-	(vi) You can catch specific exceptions by specifying the type of exception after the `except` keyword. Alternatively, you can catch all exceptions using the generic `except` clause without specifying a particular exception type.
-
-		# catching specific Error/Exception Type
-		except <ExceptionsType> as <Error>:
-
-		# Catching all The Errors/Exceptions
-		except Exception as <Error>:
-
-	(vii) example:-
-
-		try:
-		    num1 = int(input("Enter a numerator: "))
-		    num2 = int(input("Enter a denominator: "))
-		    result = num1 / num2
-		    print("Result:", result)
-
-		except ValueError:
-		    print("Please enter valid integers.")
-
-		except ZeroDivisionError:
-		    print("Cannot divide by zero.")
-
-		except Exception as e:
-		    print("An unexpected error occurred:", e)
-		
-		(a) In this example, the `try` block attempts to perform division and may raise a `ValueError` if the input is not a valid integer or a `ZeroDivisionError` if the denominator is zero. If any of these exceptions occur, the appropriate `except` block is executed. The last `except` block with the generic `Exception` type can catch any other unexpected exceptions.
-
-	(viii) `finally` Code inside finally is always executed no and it doesn't care about anything even if it's inside a function and it's returned It'll still be executed No Matter What!
-
-		try:
-			int('q2edqwfsewac')
-		except:
-			print('Some Error Occured')
-		finally:
-			print("Ended!")
-
-15. Custom Errors
-
-	(i) you can raise custom exceptions in Python. This is done by directly using or slightly modifying built-in exceptions.
-
-	(ii) Using Built-in Exceptions: Python has many built-in exceptions like `ValueError`, `TypeError`, `RuntimeError`, etc. Sometimes, you can use these directly to signal specific types of errors without needing to create a new class.
-
-		def calculate_age(year_born):
-		    age = 2024 - year_born  # Assuming the current year is 2024
-		    if age < 0:
-		        raise ValueError("Year born cannot be in the future")
-		    return age
-		
-		try:
-		    user_age = calculate_age(2025)
-		except ValueError as e:
-		    print(f"An error occurred: {e}")
-
-	(iii) Slightly Customizing Exceptions: If you want to customize an exception message without creating a new exception class, you can raise a built-in exception with a custom message.
-
-		def check_password(password):
-		    if len(password) < 8:
-		        raise Exception("Password is too short")
-
-		try:
-		    check_password("abc")
-		except Exception as e:
-		    print(f"An error occurred: {e}")
-
-		(a) Here, we use the generic Exception class to raise an exception with a custom message about the password length.
-
-	(iv) 
-
-16. Modules
+14. Modules
 
 	(i) a module is a file containing Python definitions and statements. The file name is the module name with the suffix .py added. Modules allow you to organize Python code logically into reusable files, making it easier to manage and maintain your codebase. They provide a way to encapsulate code, variables, and functions into separate units, promoting modularity and code reusability.
 
@@ -2263,7 +2182,7 @@ Basics:
 		
 		In this example, `main_script.py` imports the greet function from `my_module.py` and uses it to greet `Alice`. The code within the `if __name__ == "__main__"`: block in `my_module.py` will only execute if `my_module.py` is run directly, not when it's imported by other scripts.
 
-17. pip
+15. pip
 
 	(i) `pip` is the package installer for Python. It's a command-line tool that allows you to install, upgrade, and manage Python packages and dependencies. The name "pip" stands for "Pip Installs Packages" or "Pip Installs Python."
 
@@ -2321,25 +2240,315 @@ Basics:
 
 	(xi) Custom Package Sources: Pip supports installing packages from custom sources, such as private repositories.
 
-18. Built-in Modules
+16. Time Module
 
-	(i) `time`
+	The `time` module in Python provides various functions for working with time-related tasks, such as getting the current time, converting between different time representations, and measuring time intervals. It is a standard module in Python and is part of the Python Standard Library.
 
-		(a) `time.strftime(<String>)`: Returns The Current with the Provided String Format
+	(i) `time()`: Returns the current time in seconds since the Epoch (January 1, 1970, 00:00:00 UTC) as a floating-point number.
 
-			if(int( time.strftime('%H')) >= 4 and int(time.strftime('%H')) < 9 ):
-    		print('Good Morning!')
-			elif(int( time.strftime('%H')) >= 9 and int(time.strftime('%H')) < 15 ):
-			    print('Good AfterNoon!')
-			elif(int( time.strftime('%H')) >= 15 and int(time.strftime('%H')) < 19 ):
-			    print('Good Evening!')
-			elif(int( time.strftime('%H')) >= 20 and int(time.strftime('%H')) <= 23 ):
-			    print('Good Night!')
+		import time
 
+		current_time = time.time()
+		print("Current time:", current_time)
+	
+	(ii) `ctime(seconds)`: Converts a time expressed in seconds since the Epoch to a string representing the local time.
 
-			(I) '%H' represents the current Hour in 24Hour Clock instead of AM/PM
-			(II) '%M' represents the current Minute
-			(III) '%S' represents the current Second
+		print("Current time:", time.ctime(current_time))
+	
+	(iii) `sleep(seconds)`: Suspends the execution of the current thread for the given number of seconds.
+
+		print("Before sleep")
+		time.sleep(2)  # Sleep for 2 seconds
+		print("After sleep")
+	
+	(iv) `gmtime(seconds)`: Converts a time expressed in seconds since the Epoch to a `time.struct_time` object in UTC.
+
+		utc_time = time.gmtime(current_time)
+
+		print("UTC time:", utc_time)
+	
+	(v) `localtime(seconds)`: Converts a time expressed in seconds since the Epoch to a `time.struct_time` object in local time.
+	
+		local_time = time.localtime(current_time)
+
+		print("Local time:", local_time)
+	
+	(vi) `strftime(format, struct_time)`: Converts a `time.struct_time` object or a time tuple to a string according to the specified format.
+	
+		formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", local_time)
+
+		print("Formatted time:", formatted_time)
+	
+	(vii) `strptime(string, format)`: Parses a string representing a time according to the specified format and returns a `time.struct_time` object.
+	
+		parsed_time = time.strptime("2024-02-05 15:30:00", "%Y-%m-%d %H:%M:%S")
+
+		print("Parsed time:", parsed_time)
+	
+	(viii) `time_ns()`: Returns the current time in nanoseconds since the Epoch as an integer.
+		
+		print("Current time in nanoseconds:", current_time_ns)
+		current_time_ns = time.time_ns()
+
+17. Random Module
+
+	(i) The `random` module in Python provides functions for generating random numbers, selecting random elements from sequences, and shuffling sequences. It is commonly used in various applications such as simulations, games, cryptography, and statistical sampling.
+
+	Here are some of the key functions provided by the `random` module:
+
+	(ii) Generating Random Numbers:
+
+		(a) `random()`: Returns a random floating-point number in the range (0.0, 1.0).
+
+			import random
+			print(random.random())
+
+		(b) `randint(a, b)`: Returns a random integer in the range [a, b], including both endpoints.
+
+			print(random.randint(1, 100))
+
+	(iii) Selecting Random Elements:
+
+		(a) `choice(seq)`: Returns a randomly chosen element from a non-empty sequence.
+
+			my_list = ['apple', 'banana', 'cherry', 'date']
+			print(random.choice(my_list))
+
+		(b) `sample(<population>, <count>)`: Returns a list of <count> unique elements chosen randomly from the population sequence without replacement.
+
+			print(random.sample(range(1, 11), 5))
+
+	(iv) Shuffling Sequences:
+
+		(a) `shuffle(seq)`: Shuffles the elements of a sequence in place.
+
+			my_list = ['apple', 'banana', 'cherry', 'date']
+			random.shuffle(my_list)
+			print(my_list)
+
+	(v) Setting the Random Seed:
+
+		(a) `seed(a=None)`: Initializes the random number generator with a given seed value. If no seed is provided, it uses the system time as the default seed.
+
+		random.seed(42)
+		print(random.random())
+
+	(vi) The `random` module uses a pseudo-random number generator (PRNG) to generate random numbers. The numbers generated are not truly random but are deterministic based on the seed value. Therefore, you can use `seed()` to produce the same sequence of random numbers across multiple runs of the program, which is useful for debugging and testing.
+
+	(vii) It's important to note that the `random` module is not suitable for cryptographic purposes. For cryptographic applications, you should use the `secrets` module, which provides functions for generating cryptographically strong random numbers and tokens.
+
+18. OS modules
+
+	(i) The `os` module in Python provides a portable way of using operating system-dependent functionality. It allows you to interact with the underlying operating system, such as accessing the filesystem, managing processes, working with environment variables, and more. Here's an overview of some of the key functionalities provided by the `os` module:
+
+	(ii) File and Directory Operations:
+
+		(a) `os.getcwd()`: Returns the current working directory as a string.
+		(b) `os.chdir(<path>)`: Changes the current working directory to the specified path.
+		(c) `os.listdir(<path>)`: Returns a list of the entries in the directory specified by the path.
+		(d) `os.mkdir(<path>)`: Creates a new directory with the specified path.
+		(e) `os.makedirs(<path>)`: Creates a directory and all intermediate directories if they do not exist.
+		(f) `os.rename(<path>, <new path+new name?>)`: Renames The Specified file and with the new and also moves the file if the directory is different on the second path
+		(g) `os.system(<cmd>)`: runs CMD/Bash/Powershell commands
+
+			os.system("node index.js");
+
+	(iii) Path Manipulation:
+
+		(a) `os.path.join(path1, path2, ...)`: Joins one or more path components intelligently.
+		(b) `os.path.abspath(path)`: Returns the absolute version of the specified path.
+		(c) `os.path.basename(path)`: Returns the base name of the specified path.
+		(d) `os.path.dirname(path)`: Returns the directory name of the specified path.
+		(e) `os.path.exists(path)`: Checks whether the specified path exists.
+
+	(iv) Process Management:
+
+		(a) `os.system(command)`: Executes the command (a string) in a subshell.
+		(b) `os.spawn*()`: Various functions for spawning new processes.
+		(c) `os.wait()`: Suspends execution of the calling process until one of its child processes terminates.
+		(d) `os.kill(pid, signal)`: Sends the specified signal (an integer) to the process with the given process ID (PID).
+
+	(v) Environment Variables:
+
+		(a) `os.environ`: A mapping object representing the environment variables of the current process.
+		(b) `os.getenv(key, default=None)`: Returns the value of the environment variable identified by key, or default if the variable is not found.
+
+	(vi) Miscellaneous:
+
+		(a) `os.name`: A string that specifies the operating system dependent module imported.
+		(b) `os.rename(src, dst)`: Renames the file or directory src to dst.
+		(c) `os.remove(path)`: Removes the file path.
+		(d) `os.rmdir(path)`: Removes the directory path.
+
+	(v) Example Usage:
+
+		import os
+
+		# Get the current working directory
+		print("Current directory:", os.getcwd())
+
+		# List files and directories in the current directory
+		print("Contents of current directory:", os.listdir())
+
+		# Create a new directory
+		os.mkdir("test_directory")
+
+		# Check if a file exists
+		if os.path.exists("test_directory"):
+		    print("test_directory exists")
+
+		# Change directory
+		os.chdir("test_directory")
+
+		# Print the absolute path of the current directory
+		print("Absolute path of current directory:", os.path.abspath("."))
+
+		# Print the environment variables
+		print("Environment variables:", os.environ)
+
+	(vi) The `os` module is powerful and versatile, providing a wide range of functions to interact with the operating system in a platform-independent manner, making it an essential tool for many Python applications.
+
+19. Argparse Module
+
+	(i) The `argparse` module in Python provides a way to parse command-line arguments in a systematic and user-friendly manner. It simplifies the process of building command-line interfaces for your Python scripts and applications. It is part of the Python Standard Library and offers a powerful and flexible mechanism for handling command-line arguments.
+
+	(ii) Importing the Module: importing the `argparse` module into your Python script:
+
+	   	import argparse
+
+	(iii) Creating a Parser Object: create a parser object using the `ArgumentParser` class:
+
+	   	parser = argparse.ArgumentParser(description='Description of your script')
+	   	
+	   	(a) You can provide a description of your script, which will be displayed when users request help using the `--help` option.
+
+	(iv) Adding Arguments: add arguments to the parser using the `add_argument()` method. Each argument can have a name, optional flags, help messages, default values, data types, and more.
+	
+		(a) Syntax:
+
+			add_argument(<argumentNames>... ,default?= help='<Text for Help>')
+
+	   	parser.add_argument('filename', help='Name of the file to process')
+	   	parser.add_argument('--verbose', '-v', action='store_true', help='Enable verbose mode')
+
+	(v) Parsing Arguments: call the `parse_args()` method to parse the command-line arguments provided by the user.
+
+	   	args = parser.parse_args()
+
+	   	The `args` object will contain the values of the parsed arguments.
+
+	(vi) Accessing Parsed Arguments: You can access the parsed arguments using dot notation on the `args` object.
+
+	   	print('Filename:', args.filename)
+	   	print('Verbose mode:', args.verbose)
+
+	(v) Example:-
+
+		import argparse
+
+		# Create parser object
+		parser = argparse.ArgumentParser(description="Introduction") # Create a Method for adding Arguments
+
+		parser.add_argument('name', help="Name of The User") # Argument
+		parser.add_argument('--msg', '-m', default="Hello", help="Name of The User") # A Flag for special Arguments
+
+		args = parser.parse_args() # Get all The Arguments
+
+		print(f"{args.msg}, My name's {args.name}!")
+
+		Terminal:
+
+			> python main.py Dave --msg Hi
+			Hi, My name's Dave!
+
+	When running this script from the command line, users can provide the name of the person to greet as the first argument and optionally specify the greeting message using the `-g` or `--greeting` flag.
+
+	The `argparse` module provides extensive functionality for handling command-line arguments, including support for positional arguments, optional arguments, default values, type checking, mutually exclusive groups, sub-commands, and more. It is a versatile and powerful tool for creating user-friendly command-line interfaces for your Python applications.	
+
+Section: More Concepts
+
+14. try..except
+	
+	(i) the `try..except` statement is used to handle exceptions or errors that may occur during the execution of a block of code. It allows you to anticipate and gracefully handle errors, preventing the program from crashing.
+
+	(ii) Syntax:
+
+		try:
+		    <code to catch error/exception in>
+		except <ExceptionType> as <error>:
+		    <Code to handle the error/exception>
+
+    (iii) The code inside the `try` block is executed.
+    (iv) If an exception occurs during the execution of the `try` block, the code in the corresponding `except` block is executed.
+    (v) If no exception occurs, the `except` block is skipped.
+
+	(vi) You can catch specific exceptions by specifying the type of exception after the `except` keyword. Alternatively, you can catch all exceptions using the generic `except` clause without specifying a particular exception type.
+
+		# catching specific Error/Exception Type
+		except <ExceptionsType> as <Error>:
+
+		# Catching all The Errors/Exceptions
+		except Exception as <Error>:
+
+	(vii) example:-
+
+		try:
+		    num1 = int(input("Enter a numerator: "))
+		    num2 = int(input("Enter a denominator: "))
+		    result = num1 / num2
+		    print("Result:", result)
+
+		except ValueError:
+		    print("Please enter valid integers.")
+
+		except ZeroDivisionError:
+		    print("Cannot divide by zero.")
+
+		except Exception as e:
+		    print("An unexpected error occurred:", e)
+		
+		(a) In this example, the `try` block attempts to perform division and may raise a `ValueError` if the input is not a valid integer or a `ZeroDivisionError` if the denominator is zero. If any of these exceptions occur, the appropriate `except` block is executed. The last `except` block with the generic `Exception` type can catch any other unexpected exceptions.
+
+	(viii) `finally` Code inside finally is always executed no and it doesn't care about anything even if it's inside a function and it's returned It'll still be executed No Matter What!
+
+		try:
+			int('q2edqwfsewac')
+		except:
+			print('Some Error Occured')
+		finally:
+			print("Ended!")
+
+15. Custom Errors
+
+	(i) you can raise custom exceptions in Python. This is done by directly using or slightly modifying built-in exceptions.
+
+	(ii) Using Built-in Exceptions: Python has many built-in exceptions like `ValueError`, `TypeError`, `RuntimeError`, etc. Sometimes, you can use these directly to signal specific types of errors without needing to create a new class.
+
+		def calculate_age(year_born):
+		    age = 2024 - year_born  # Assuming the current year is 2024
+		    if age < 0:
+		        raise ValueError("Year born cannot be in the future")
+		    return age
+		
+		try:
+		    user_age = calculate_age(2025)
+		except ValueError as e:
+		    print(f"An error occurred: {e}")
+
+	(iii) Slightly Customizing Exceptions: If you want to customize an exception message without creating a new exception class, you can raise a built-in exception with a custom message.
+
+		def check_password(password):
+		    if len(password) < 8:
+		        raise Exception("Password is too short")
+
+		try:
+		    check_password("abc")
+		except Exception as e:
+		    print(f"An error occurred: {e}")
+
+		(a) Here, we use the generic Exception class to raise an exception with a custom message about the password length.
+
+	(iv) 
 
 19. Virtual Environment
 
@@ -2411,77 +2620,6 @@ Basics:
     	(d) Avoiding Global Installation: Virtual environments allow you to avoid installing packages globally, which might interfere with system-wide Python settings.
 
     	(e) Dependency Management: Virtual environments are crucial when working on projects with specific version requirements for libraries, as you can install and manage the required versions easily.
-
-20. OS modules
-
-	(i) The `os` module in Python provides a portable way of using operating system-dependent functionality. It allows you to interact with the underlying operating system, such as accessing the filesystem, managing processes, working with environment variables, and more. Here's an overview of some of the key functionalities provided by the `os` module:
-
-	(ii) File and Directory Operations:
-
-		(a) `os.getcwd()`: Returns the current working directory as a string.
-		(b) `os.chdir(<path>)`: Changes the current working directory to the specified path.
-		(c) `os.listdir(<path>)`: Returns a list of the entries in the directory specified by the path.
-		(d) `os.mkdir(<path>)`: Creates a new directory with the specified path.
-		(e) `os.makedirs(<path>)`: Creates a directory and all intermediate directories if they do not exist.
-		(f) `os.rename(<path>, <new path+new name?>)`: Renames The Specified file and with the new and also moves the file if the directory is different on the second path
-		(g) `os.system(<cmd>)`: runs CMD/Bash/Powershell commands
-
-			os.system("node index.js");
-
-	(iii) Path Manipulation:
-
-		(a) `os.path.join(path1, path2, ...)`: Joins one or more path components intelligently.
-		(b) `os.path.abspath(path)`: Returns the absolute version of the specified path.
-		(c) `os.path.basename(path)`: Returns the base name of the specified path.
-		(d) `os.path.dirname(path)`: Returns the directory name of the specified path.
-		(e) `os.path.exists(path)`: Checks whether the specified path exists.
-
-	(iv) Process Management:
-
-		(a) `os.system(command)`: Executes the command (a string) in a subshell.
-		(b) `os.spawn*()`: Various functions for spawning new processes.
-		(c) `os.wait()`: Suspends execution of the calling process until one of its child processes terminates.
-		(d) `os.kill(pid, signal)`: Sends the specified signal (an integer) to the process with the given process ID (PID).
-
-	(v) Environment Variables:
-
-		(a) `os.environ`: A mapping object representing the environment variables of the current process.
-		(b) `os.getenv(key, default=None)`: Returns the value of the environment variable identified by key, or default if the variable is not found.
-
-	(vi) Miscellaneous:
-
-		(a) `os.name`: A string that specifies the operating system dependent module imported.
-		(b) `os.rename(src, dst)`: Renames the file or directory src to dst.
-		(c) `os.remove(path)`: Removes the file path.
-		(d) `os.rmdir(path)`: Removes the directory path.
-
-	(v) Example Usage:
-
-		import os
-
-		# Get the current working directory
-		print("Current directory:", os.getcwd())
-
-		# List files and directories in the current directory
-		print("Contents of current directory:", os.listdir())
-
-		# Create a new directory
-		os.mkdir("test_directory")
-
-		# Check if a file exists
-		if os.path.exists("test_directory"):
-		    print("test_directory exists")
-
-		# Change directory
-		os.chdir("test_directory")
-
-		# Print the absolute path of the current directory
-		print("Absolute path of current directory:", os.path.abspath("."))
-
-		# Print the environment variables
-		print("Environment variables:", os.environ)
-
-	(vi) The `os` module is powerful and versatile, providing a wide range of functions to interact with the operating system in a platform-independent manner, making it an essential tool for many Python applications.
 
 21. Scope
 
@@ -2685,6 +2823,15 @@ Basics:
 
 					print(file.tell()) # 7
 
+		(h) `truncate(<length>)` limits the length of them file to the specificed length
+
+			with open('./test.txt', 'w') as file:
+			    file.write("1234567890")
+			    file.truncate(5) # Limits file Size to 5 characters
+
+			with open('./test.txt', 'r') as file:
+			    print(file.read()) # 12345
+
 	(iii) Standard I/O: Standard I/O involves reading input from the keyboard (stdin), printing output to the screen (stdout), and printing error messages (stderr).
 
 		(a) `Reading Input`: Use the `input()` function to read input from the user.
@@ -2718,3 +2865,804 @@ Basics:
 		(b) `Working with APIs`: Use libraries like `json` or `xml` to work with JSON or XML data retrieved from APIs.
 
 	(vi) Python's I/O capabilities are versatile and comprehensive, making it suitable for a wide range of tasks involving interaction with external sources. Whether you're reading from files, communicating over networks, or interacting with databases, Python provides powerful tools and libraries to handle various I/O operations efficiently.
+
+23. Map, Filter, Reduce
+
+	(i) In Python, `map`, `filter`, and `reduce` are built-in functions that provide functional programming capabilities. They allow you to apply functions to iterables like lists, tuples, or sets in a concise and expressive manner.
+
+	(ii) `map()`
+		
+		(a) The `map()` function applies a given function to each item of an iterable (like a list) and returns an iterator that yields the results.
+
+		(b) Syntax:
+			
+			map(<callback_function>, <iterable>)
+
+			(I) `function`: The function to apply to each element of the iterable.
+			(II) `iterable`: The iterable (list, tuple, etc.) whose elements will be processed by the function.
+
+		(c) Example:
+
+			# Convert a list of strings to uppercase
+			strings = ['hello', 'world', 'python']
+			
+			upper_strings = list(map(str.upper, strings))
+
+			print(upper_strings)  # Output: ['HELLO', 'WORLD', 'PYTHON']
+
+	(iii) `filter()`
+
+		(a) The `filter()` function constructs a new iterator from elements of an iterable for which a function returns true.
+
+		(b) Syntax:
+
+			filter(function, iterable)
+
+			(I) `function`: A function that tests if each element of the iterable satisfies a condition.
+			(Note: This Function should return a boolean)
+			(II) `iterable`: The iterable (list, tuple, etc.) whose elements will be tested by the function.
+
+		(c) Example:
+
+			# Filter even numbers from a list
+			numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+			even_numbers = filter(lambda x: x % 2 == 0, numbers)
+
+			print(list(even_numbers))  # Output: [2, 4, 6, 8, 10]
+
+	(iv) `reduce()`
+		
+		(a) The `reduce()` function is part of the `functools` module in Python 3.x. It applies a rolling computation to sequential pairs of values in an iterable, reducing them to a single cumulative value.
+
+		(b) Syntax:
+
+			from functools import reduce
+			reduce(function, iterable, initializer)
+
+			(I) `function`: A function that takes two arguments and returns a single value.
+
+				(A) Parameter 1 Represents Previous Value
+				(B) Parameter 2 Represents Current Value
+
+			(II) `iterable`: The iterable (list, tuple, etc.) to be reduced.
+			(III) `initializer` (optional): An initial value to start the computation. If provided, the computation starts with the initializer and the first element of the iterable.
+
+		(c) Example:
+
+			from functools import reduce
+
+			# Calculate the product of all elements in a list
+			numbers = [1, 2, 3, 4, 5]
+			product = reduce(lambda x, y: x * y, numbers)
+			print(product)  # Output: 120 (1*2*3*4*5)
+
+25. General Keywords
+
+	(i) `is`
+
+		(a) In Python, the `is` keyword is used to test whether two variables refer to the same object in memory, essentially checking for object identity. It compares the memory addresses of the two objects rather than their values.
+
+		(b) Here's how the `is` keyword works:
+
+			(I) When you use the `is` keyword, Python checks if the memory address of the two objects is the same.
+			(II) If the memory addresses are the same, the `is` keyword returns `True`, indicating that the two variables refer to the same object.
+			(III) If the memory addresses are different, the `is` keyword returns `False`, indicating that the two variables refer to different objects.
+
+		(c) Example:
+
+			x = [1, 2, 3]
+			y = [1, 2, 3]
+
+			print(x is y)  # Output: False, because x and y refer to different list objects
+
+			z = x
+			print(x is z)  # Output: True, because x and z refer to the same list object
+
+			In the example above:
+
+			(I) `x` and `y` are two different list objects, even though they have the same contents. Therefore, `x is y` evaluates to `False`.
+			(II) `z` is assigned to the same list object as `x`. Therefore, `x is z` evaluates to `True`.
+
+		(d) `is` keyword checks for object identity, which is different from the `==` operator, which checks for equality of values.
+
+			Example:
+	
+			a = [1, 2, 3]
+			b = [1, 2, 3]
+	
+			print(a == b)  # Output: True, because the values of a and b are the same
+			print(a is b)  # Output: False, because a and b are different objects in memory
+		
+		(e) While `==` checks whether the values of the variables are the same, `is` checks whether the variables refer to the same object in memory.
+
+		(f) More Examples:
+
+			a = 5
+			b = 5
+
+			print(a is b) # True
+			print(a == b) # True, because Numbers are Constants
+
+			a = 'myString'
+			b = 'myString'
+
+			print(a is b) # True
+			print(a == b) # True, because Strings are Constants
+
+			a = ('10',)
+			b = ('10',)
+
+			print(a == b) # True
+			print(a is b) # True, because Tuples are Constants
+
+			a = ['10']
+			b = ['10']
+
+			print(a == b) # True
+			print(a is b) # False, because Lists are not Constants
+
+			a = None
+			b = None
+
+			print(a == b) # True
+			print(a is b) # True, because `None` is Constant
+
+26. Decorators
+
+	(i) Decorators in Python are functions that modify the behavior of other functions or methods. They allow you to add functionality to an existing function or method without modifying its code directly. Decorators are widely used for tasks such as logging, authorization, caching, and more.
+
+	(ii) Functions as First-Class Citizens: In Python, functions are first-class citizens, which means they can be passed as arguments to other functions, returned from other functions, and assigned to variables. This feature is fundamental to understanding decorators.
+
+	(iii) Syntax:
+
+		# The Decorator
+		def my_decorator(
+			<function> # The Function which is called right before it
+		):
+			def wrapper(*<args>):
+
+				# Add Extra Code in this Function to execute them before/after the execution of them code
+
+				<function>(*<args>)
+
+			return <FunctionToReturn>
+		
+
+		@<my_decorator> # It should be called Right Before the Function
+		<Function>
+
+	(iv) Example of a Simple Decorator:
+
+		def greet(fnx):
+		    def wrapper(*args):
+		        print("Hi")
+		        fnx(*args)
+		        print("k Thx Bye")
+		    return wrapper
+
+		@greet
+		def add(a, b):
+		    print(a + b)
+
+		add(5, 10) # Printed:
+		"""
+		Hi
+		15
+		k Thx Bye
+		"""
+
+		In this example:
+
+		(a) `my_decorator` is a function that takes another function (`func`) as its argument and returns a new function (`wrapper`) that adds additional behavior before and after calling `func`.
+		(b) `@my_decorator` syntax is used to decorate the `say_hello` function.
+		(c) When `say_hello()` is called, it actually invokes the `wrapper` function created by the decorator, which in turn calls the original `say_hello` function.
+
+	(v) Decorators with Arguments: Decorators can also take arguments by adding an additional layer of nested functions.
+
+		def repeat(n):
+		    def decorator(func):
+		        def wrapper(*args, **kwargs):
+		            for _ in range(n):
+		                func(*args, **kwargs)
+		        return wrapper
+		    return decorator
+
+		@repeat(3)
+		def greet(name):
+		    print(f"Hello, {name}!")
+
+		greet("Alice")
+
+		In this example, `repeat(3)` returns the `decorator` function, which in turn returns the `wrapper` function. The `wrapper` function repeats the execution of the decorated function (`greet` in this case) `n` times.
+
+	(vi) Use Cases of Decorators:
+
+		(a) `Logging`: Adding logging statements before and after function calls.
+		(b) `Authorization`: Checking user permissions before executing functions.
+		(c) `Caching`: Storing the results of function calls to improve performance.
+		(d) `Validation`: Checking input parameters before executing functions.
+		(e) `Timing`: Measuring the time taken by functions to execute.
+
+	(vii) Decorators offer a powerful mechanism for adding cross-cutting concerns to functions or methods in a modular and reusable way. They help keep the code clean, concise, and maintainable by separating concerns and promoting separation of responsibilities.
+
+Section: Object Oriented Programming
+
+27. Classes
+	
+	(i) In Python, a class is a blueprint for creating objects (instances) that share common attributes and behaviors. It serves as a template that defines the structure and behavior of objects. Classes in Python encapsulate data (attributes) and functions (methods) that operate on that data.
+
+	(ii) Syntax:
+
+		class <className>:
+
+			<variables?> = <value?>
+
+			def __init__(self, <args...?>):
+				<Code to be Executed when defining class>
+
+			def <functionName>(self, <args...?>):
+				<COde to Execute>
+
+	(iii) Example:-
+
+		class Person:
+		    # Constructor (initializer) method
+		    def __init__(self, name, age):
+		        self.name = name
+		        self.age = age
+
+		    # Instance method
+
+		    def introduce(self):
+		        print(f"Hi I'm {self.name}")
+
+		james = Person("James", 36) # Instance
+
+		james.introduce() # Prints: Hi I'm James
+
+		james = Person # Reference
+
+	(v) Classes are Objects (Dictionaries) that stores data and Methods for us to use and Classes They are Highly Customizeable compared to Objects and whenever making an instance of it Copy of The Class as an Object (Dictionary) is assigned to The Instance and we can use the methods defined the class on the instance
+
+	(vi) Constructors: Constructor are Special Functions in Classes that are called during declaration of the Instance of The Class, The Constructors require a Special Name `__init__`
+
+		(a) Syntax:
+
+			# In The Class
+			def __init__ (self, <args...>):
+				<code to Execute>
+
+			# Declaration in The Instance
+
+			<className>(<args...>)
+
+		class Person:
+		    # Constructor (initializer) method
+		    def __init__(self, name, age):
+		        self.name = name
+		        self.age = age
+
+		james = Person("James", 36)
+		
+	(v) `self` keyword represents The instanced object (dictionary) and not the class
+		
+		class Person:
+		    # Constructor (initializer) method
+		    def __init__(self, name, age):
+		        self.name = name
+		        self.age = age
+
+		    # Instance method
+
+		    def info(self):
+		        return self.age
+
+		james = Person("James", 36)
+		dave = Person("Dave", 47)
+ 
+		james.age # 36
+		dave.age # 47
+
+		# `self` keyword is dynamic
+
+	(vi) `cls` keyword takes place of `self` keyword in arguments and instead represents the class instead of the Object meaning It can modify The Class.
+
+		class Counter:
+		
+		    i = 0
+		    @classmethod
+		    def __init__(cls):
+		        cls.i += 1
+		        print(cls.i)
+		
+		counter1 = Counter() # 1
+		counter2 = Counter() # 2
+		counter3 = Counter() # 3
+		counter4 = Counter() # 4
+		counter5 = Counter() # 5
+
+		# `cls` keyword is static
+
+	(vii) Methods are functions defined within a class. They can operate on the object's data (attributes) and perform actions.
+
+		class Person:
+		    def introduce(self):
+		        print(f"Hi I'm {self.name}")
+
+		james = Person()
+		james.name = 'James'
+		james.introduce() # Prints: Hi I'm James
+
+	(viii) Getters and Setters
+
+		(a) Getters and setters are methods used to retrieve and modify the values of private attributes in Python classes. They are often used to enforce encapsulation and provide controlled access to class attributes.
+
+		(Note: When inside a Getter/Setter use add `_` prefix to any values you may refer to, this avoids Name collisions and References the same property you meant to refer to)
+
+		(b) Getters
+
+			(I) A getter is a method used to retrieve the value of a private attribute. It allows access to the attribute's value without directly accessing the attribute itself.
+
+			Here's an example of a getter method:
+
+			
+			class MyClass:
+			    def __init__(self):
+			        self._value = 0  # Private attribute
+
+			    # Getter method for retrieving the value of _value
+			    def get_value(self):
+			        return self._value
+
+			# Create an instance of MyClass
+			obj = MyClass()
+	
+			# Access _value using the getter method
+			print(obj.get_value())  # Output: 0
+		
+		(c) Setters
+
+			(I) A setter is a method used to modify the value of a private attribute. It allows controlled modification of the attribute's value and may include validation or additional logic.
+
+			Here's an example of a setter method:
+	
+			class MyClass:
+			    def __init__(self):
+			        self._value = 0  # Private attribute
+
+			    # Getter method for retrieving the value of _value
+			    def get_value(self):
+			        return self._value
+
+			    # Setter method for modifying the value of _value
+			    def set_value(self, new_value):
+			        if new_value >= 0:
+			            self._value = new_value
+			        else:
+			            print("Invalid value. Value must be non-negative.")
+
+			# Create an instance of MyClass
+			obj = MyClass()
+
+			# Modify _value using the setter method
+			obj.set_value(10)
+
+			# Access _value using the getter method
+			print(obj.get_value())  # Output: 10
+
+			# Try to set a negative value
+			obj.set_value(-5)  # Output: Invalid value. Value must be non-negative.
+
+		(d) Property Decorators
+
+			(I) In Python, property decorators provide a more concise and Pythonic way to implement getters and setters.
+
+			(II) Here's how you can use property decorators:
+
+				class MyClass:
+				    def __init__(self):
+				        self._value = 0  # Private attribute
+
+				    # Getter method for retrieving the value of _value
+				    @property
+				    def value(self):
+				        return self._value
+
+				    # Setter method for modifying the value of _value
+				    @value.setter
+				    def value(self, new_value):
+				        if new_value >= 0:
+				            self._value = new_value
+				        else:
+				            print("Invalid value. Value must be non-negative.")
+
+				# Create an instance of MyClass
+				obj = MyClass()
+
+				# Modify _value using the property setter
+				obj.value = 20
+
+				# Access _value using the property getter
+				print(obj.value)  # Output: 20
+
+				# Try to set a negative value
+				obj.value = -15  # Output: Invalid value. Value must be non-negative.
+		
+				(A) In this example, `@property` is used to define a getter method, and `@value.setter` is used to define a setter method for the `value` property. This syntax provides a more elegant way to define getters and setters in Python classes.
+
+		(e) Using getters and setters in Python allows for controlled access to class attributes, promoting encapsulation and ensuring data integrity within the class. However, they should be used judiciously and only when necessary, as excessive use of getters and setters can lead to code verbosity and decreased readability.
+
+	(ix) Inheritance
+		
+		(a) Inheritance allows a class (subclass) to inherit attributes and methods from another class (superclass). It promotes code reuse and supports the creation of hierarchical relationships.
+
+		(b) Inheritances
+
+			(I) Single Inheritance
+
+				ParentClass
+					|
+					|
+					|
+				Child Class
+
+			(II) Multiple Inheritance
+
+				ParentClass1	ParentClass2
+					|				|
+					|---------------|
+							|
+						Child Class
+
+			(III) Multi-Level Inheritance
+
+				GrandParentClass
+					|
+					|
+				Parent Class
+					|
+					|
+				Child Class
+
+			(IV) Hybrid Inheritance
+
+					GrandParentClass
+							|
+					|---------------|
+					|				|
+				ParentClass1	ParentClass2
+					|				|
+					|---------------|
+							|
+						ChildClass
+
+			(V) Hierarchical Inheritance:
+
+						ParentClass
+							|
+					|---------------|
+					|				|
+				ChildClass1    ChildClass2
+
+		(b) Syntax:
+
+			class <Child_Class>(<Parent_Class>):
+
+		(c) Example:
+
+			class Person:
+			    def __init__ (self, name, age):
+			        self.name = name
+			        self.age = age
+
+			class Student (Person): # Inherit from Person
+			    studentid = -1
+
+			    @property
+			    def studentid(self):
+			        return self._studentid
+
+			    @studentid.setter
+			    def studentid(self, id):
+			        self._studentid = id
+
+			student1 = Student("James", 19)
+			student1.studentid = 20240523564
+
+			print(student1.name) # James
+			print(student1.age) # 19
+			print(student1.studentid) # 20240523564
+
+		(d) Multiple Inheritance
+
+			(I) Multiple inheritance in Python refers to the ability of a class to inherit attributes and methods from more than one parent class. This means that a child class can inherit from multiple parent classes, allowing it to access and use the attributes and methods defined in each of its parent classes.
+
+			(II) In Python, multiple inheritance is achieved by specifying multiple parent classes in the class definition. example:-
+
+				class Parent1:
+				    def method1(self):
+				        print("Method from Parent1")
+
+				class Parent2:
+				    def method2(self):
+				        print("Method from Parent2")
+
+				# Child class inherits from both Parent1 and Parent2
+				class Child(Parent1, Parent2):
+				    pass
+
+				# Creating an instance of the child class
+				child = Child()
+
+				# Calling methods inherited from Parent1 and Parent2
+				child.method1()  # Output: Method from Parent1
+				child.method2()  # Output: Method from Parent2
+
+				(A) In the example above, the `Child` class inherits from both `Parent1` and `Parent2`. Therefore, objects of the `Child` class have access to methods defined in both parent classes.
+
+			(III) Method Resolution Order (MRO):
+
+				(A) Python uses a method resolution order (MRO) to determine the order in which methods are inherited from parent classes. The MRO defines the sequence in which Python looks for methods in the inheritance hierarchy.
+
+				(B) The MRO can be accessed using the `__mro__` attribute or the `mro()` method of a class. Example:-
+
+					print(Child.__mro__)
+					# Output: (<class '__main__.Child'>, <class '__main__.Parent1'>, <class '__main__.Parent2'>, <class 'object'>)
+
+				(C) In this case, the method resolution order for the `Child` class is `Child`, `Parent1`, `Parent2`, and finally the built-in `object` class.
+
+			(IV) Diamond Problem:
+
+				(A) Multiple inheritance can lead to a situation known as the diamond problem when a class inherits from two classes that have a common ancestor. This can cause ambiguity in method resolution. To avoid this, Python uses a specific method resolution order (C3 linearization) that guarantees a consistent and predictable order for method resolution.
+
+			(V) Guidelines for Using Multiple Inheritance:
+
+				(A) Use multiple inheritance judiciously to avoid complex class hierarchies and potential conflicts.
+				(B) Favor composition over inheritance whenever possible to achieve code reuse and maintainability.
+				(C) Document class hierarchies and method resolution order for clarity and understanding.
+
+			(VI) While multiple inheritance can be a powerful feature in Python, it should be used with caution to ensure code readability, maintainability, and correctness.
+
+		(e) Hybrid Inheritance:
+			
+			(I) Hybrid inheritance refers to a combination of different types of inheritance patterns within a single class hierarchy. It typically involves a mix of single inheritance, multiple inheritance, and multilevel inheritance.
+			
+			(II) Example:-
+			
+				class A:
+				    def method_A(self):
+				        print("Method from class A")
+
+				class B(A):
+				    def method_B(self):
+				        print("Method from class B")
+
+				class C(A):
+				    def method_C(self):
+				        print("Method from class C")
+
+				class D(B, C):  # Multiple inheritance
+				    def method_D(self):
+				        print("Method from class D")
+
+				# Creating an instance of class D
+				d = D()
+				d.method_A()  # Output: Method from class A
+				d.method_B()  # Output: Method from class B
+				d.method_C()  # Output: Method from class C
+				d.method_D()  # Output: Method from class D
+			
+				(A) In the example above, class `D` inherits from both class `B` and class `C`, which demonstrates multiple inheritance. Additionally, both `B` and `C` inherit from class `A`, showcasing single inheritance. This combination of inheritance patterns is an example of hybrid inheritance.
+			
+		(f) Hierarchical Inheritance:
+			
+			(I) Hierarchical inheritance refers to a single base class being inherited by multiple derived classes, forming a hierarchical relationship. In this pattern, one base class serves as the superclass for multiple subclasses.
+			
+			(III) Example:-
+			
+				class Animal:
+				    def speak(self):
+				        pass
+
+				class Dog(Animal):  # Inherited from Animal
+				    def speak(self):
+				        print("Dog barks")
+
+				class Cat(Animal):  # Inherited from Animal
+				    def speak(self):
+				        print("Cat meows")
+
+				# Creating instances of subclasses
+				dog = Dog()
+				cat = Cat()
+
+				dog.speak()  # Output: Dog barks
+				cat.speak()  # Output: Cat meows
+			
+				(A) In the example above, both `Dog` and `Cat` classes inherit from the `Animal` class. Each subclass provides its own implementation of the `speak()` method, demonstrating hierarchical inheritance.
+
+	(x) Static Methods
+
+		(a) In Python, static methods are methods that are bound to the class rather than to instances of the class. They do not receive an implicit first argument (such as `self` in instance methods) and can be called on the class itself or on instances of the class. Static methods are defined using the `@staticmethod` decorator.
+
+		(b) Example:
+		
+			class MyClass:
+			    class_variable = 10  # Class variable
+
+			    def __init__(self, value):
+			        self.value = value  # Instance variable
+
+			    @staticmethod
+			    def static_method():
+			        print("This is a static method")
+
+			# Calling the static method using the class name
+			MyClass.static_method()
+
+			# Creating an instance of MyClass and calling the static method
+			obj = MyClass(20)
+			obj.static_method()
+		
+		(c) Key points about static methods:
+		
+			(I) `No `self` Argument`: Static methods do not take the instance (`self`) or class (`cls`) as the first parameter. Therefore, they cannot access or modify instance or class variables directly.
+		
+			(II) `Accessed via Class or Instance`: Static methods can be called using the class name or an instance of the class.
+		
+			(III) `Utility Functions`: Static methods are often used to define utility functions that are related to the class but do not depend on instance or class state.
+		
+			(IV) `Limited Access to Class Attributes`: While static methods can access class attributes, they do so through the class name, and they do not have access to instance variables.
+		
+		(d) When to use static methods:
+		
+			(I) When a method does not require access to instance or class state.
+			(II) When a method performs a task related to the class but does not depend on instance or class attributes.
+			(III) When a method does not modify the state of the instance or the class.
+		
+		(e) Static methods provide a way to organize code within a class and improve code readability and maintainability by logically grouping related functionality. However, it's important not to overuse static methods and consider whether a method should be an instance method, a class method, or a static method based on its behavior and dependencies.
+
+	(xi) Access Modifiers:
+
+		(a) Python does not have built-in access modifiers like some other programming languages (e.g., Java, C++), such as `public`, `private`, and `protected`. However, Python uses naming conventions and features to achieve similar behavior:
+
+		(b) Public Members:
+
+			(I) In Python, attributes and methods are public by default, which means they can be accessed from outside the class.
+
+			class MyClass:
+			    def __init__(self):
+			        self.public_attribute = 10
+
+			    def public_method(self):
+			        return self.public_attribute
+
+			obj = MyClass()
+			print(obj.public_attribute)   # Accessing public attribute
+			print(obj.public_method())     # Accessing public method
+
+		(c) Protected Members:
+
+			(I) In Python, attributes and methods are conventionally marked as protected by prefixing their names with a single underscore `_`. While this doesn't prevent access from outside the class, it serves as a signal to users of the class that these members are intended for internal use and should be treated as protected.
+
+			class MyClass:
+			    def __init__(self):
+			        self._protected_attribute = 10
+
+			    def _protected_method(self):
+			        return self._protected_attribute
+
+			obj = MyClass()
+			print(obj._protected_attribute)   # Accessing protected attribute
+			print(obj._protected_method())     # Accessing protected method
+
+		(d) Private Members:
+
+			(I) In Python, attributes and methods can be marked as private by prefixing their names with a double underscore `__`. This doesn't make them truly private but invokes name mangling, which modifies the name to include the class name, making it harder to access from outside the class.
+
+			class MyClass:
+			    def __init__(self):
+			        self.__private_attribute = 10
+
+			    def __private_method(self):
+			        return self.__private_attribute
+
+			obj = MyClass()
+			# print(obj.__private_attribute)  # This would raise an AttributeError
+			# print(obj.__private_method())    # This would raise an AttributeError
+			print(obj._MyClass__private_attribute)   # Accessing private attribute using name mangling
+			print(obj._MyClass__private_method())     # Accessing private method using name mangling
+
+		(e) Summary
+
+			(I) `Public Members`: Accessible from anywhere.
+			(II) `Protected Members`: Conventionally marked with a single underscore `_` to indicate internal use.
+			(III) `Private Members`: Conventionally marked with a double underscore `__` and are name-mangled to make it harder to access directly from outside the class.
+
+		While Python's approach to access modifiers relies on conventions and name mangling rather than strict enforcement, it still promotes the principles of encapsulation and abstraction, which are fundamental to object-oriented programming. Developers are encouraged to follow these conventions to write clean, maintainable, and understandable code.
+	
+	(xii) `<instance>.__dict__` is property used on Instances of a Class to show all the properties in the Instanced Object
+
+		class MyClass:
+			class_variable = 10  # Class variable
+
+			def __init__(self, name, age):
+				self.value = value
+				self.name = name
+				self.age = age
+			
+		# Creating an instance of MyClass and calling the static method
+		obj = MyClass("Dave", 36)
+		obj.__dict__ // {'name': 'Dave', 'age': '36', 'class_variable': 10}
+	
+	(xiii) `super` keyword
+
+		(a) In Python, `super()` is a built-in function that provides a way to access and call methods of a superclass (parent class) in a subclass (child class). It allows you to invoke methods from the superclass without explicitly naming the superclass, which makes your code more maintainable and flexible, especially in the context of inheritance.
+
+		(b) Here's how `super()` works:
+
+			(I) Accessing Superclass Methods: In a subclass, you can use `super()` to access methods from its superclass. This is particularly useful when the subclass overrides a method from the superclass but still wants to invoke the superclass method within the overriding method.
+
+		(c) Syntax:
+   			
+			(I) The `super()` function takes two arguments: the subclass itself and the instance of the subclass.
+   			(II) It returns a proxy object that delegates method calls to the superclass.
+
+		(d) Calling Superclass Methods: After obtaining the `super()` object, you can call methods of the superclass using dot notation.
+
+		(e) Example:-
+
+			class Person:
+			    def __init__ (self, name, age):
+			        self.name = name
+			        self.age = age
+
+			class Student (Person): # Inherit from Person
+			    def  __init__ (self, name, age, ID):
+
+			        super().__init__(name, age) # Calling The Constructor of the Parent Class
+
+			        self.studentid = ID
+
+			student = Student("James", 19, 20210563597)
+
+			print(student.name) # James
+			print(student.age) # 19
+			print(student.studentid) # 20210563597
+
+		(f) Using `super()` enhances code reusability and helps maintain the class hierarchy in a clear and consistent manner. It ensures that changes made to the superclass are automatically reflected in the subclass, promoting the principle of DRY (Don't Repeat Yourself) in object-oriented programming.
+
+	(xiv) Dunder Methods
+
+		(a) Dunder methods (double underscore methods), also known as magic methods or special methods, are special built-in methods in Python classes that enable customization and provide functionality to classes that can behave like built-in types or interact with built-in language features. Dunder methods are identified by their names, which start and end with double underscores, such as `__init__`, `__str__`, `__repr__`, `__add__`, etc.
+
+		Here are some common dunder methods and their purposes:
+
+		(b) `__init__(self, ...)`: The constructor method, called when an instance of the class is created. It initializes the instance's attributes.
+
+		(c) `__str__(self)`: The string representation method, invoked when `str()` is called on an instance of the class. It should return a string representation of the object.
+
+		(d) `__repr__(self)`: The official string representation method, invoked when `repr()` is called on an instance of the class. It should return a string that represents a valid Python expression that can be used to recreate the object.
+
+		(e) `__len__(self)`: The length method, invoked when `len()` is called on an instance of the class. It should return the length of the object.
+
+		(f) `__add__(self, other)`: The addition method, invoked when the `+` operator is used with instances of the class.
+
+		(g) `__eq__(self, other)`: The equality method, invoked when the `==` operator is used with instances of the class.
+
+		(h) `__lt__(self, other)`: The less than method, invoked when the `<` operator is used with instances of the class.
+
+		(i) `__gt__(self, other)`: The greater than method, invoked when the `>` operator is used with instances of the class.
+
+		(j) `__getitem__(self, key)`: The indexing method, invoked to retrieve an item from the object using square brackets (`[]`).
+
+		(k) `__setitem__(self, key, value)`: The item assignment method, invoked to set the value of an item in the object using square brackets (`[]`).
+
+		(l) `__delitem__(self, key)`: The item deletion method, invoked to delete an item from the object using the `del` statement.
+
+		(m) `__iter__(self)`: The iteration method, invoked when the object is iterated over, for example, in a `for` loop.
+
+		(n) These are just a few examples of the many dunder methods available in Python classes. By implementing these methods, you can define custom behavior for your objects and make your classes behave more like built-in types, enabling Python's rich language features and idioms to be applied to your custom objects.
+
+	(xv) Classes in Python provide a powerful mechanism for organizing and modeling data and behavior. They encapsulate data and methods, support inheritance and polymorphism, and promote code reusability and maintainability. Understanding classes is fundamental to object-oriented programming (OOP) in Python and is essential for building complex and scalable applications.
