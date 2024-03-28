@@ -140,8 +140,89 @@ Basics:
 
 		# Incorrect usage
 		class = "Python"
+
+4. Expressions vs Declaration vs Statements
+
+	(i) In Python, declarations, expressions, and statements are fundamental concepts that are used to define and manipulate data, control program flow, and perform various operations. Here's an explanation of each:
+
+	(ii) Example:-
+
+		x = 45 # <-- Declaration
+
+		print(x) # <-- Expression
+
+		if (x > 30): # <-- Statement
+			y = x*2 # <-- Declaration
+			print(y) # <-- Expression
+
+		def toInteger(string){ # <-- Declaration
+			number = int(string) # <-- Declaration
+
+			return number # <-- Expression
+		}
+
+	(i) Declaration:
+
+		A declaration is a way of introducing an identifier (such as a variable, function, class, etc.) to the Python interpreter. It associates a name with a specific entity and may optionally specify its type or initial value.
+
+		(a) Variable Declaration: In Python, variable declaration is implicit; you simply assign a value to a variable, and Python automatically creates the variable.
 	
-4. Data Types
+		    x = 10  # Variable 'x' is declared and assigned the value 10
+
+		(b) Function Declaration: Functions are declared using the `def` keyword followed by the function name, parameters, and body.
+
+		    def greet(name):
+		        print(f"Hello, {name}!")
+
+	(ii) Expression:
+
+		(a) An expression is a combination of literals, variables, operators, and function calls that evaluates to a single value. Expressions are the building blocks of Python programs and are used to perform computations or represent data.
+
+		(b) Arithmetic Expressions:
+
+		    result = 3 + 5 * 2  # Evaluates to 13
+
+
+		(c) Function Call Expressions:
+
+		    greet("Alice")  # Calls the greet function with the argument "Alice"
+
+		(d) Conditional Expressions (Ternary Operator):
+
+		    result = "positive" if x > 0 else "negative"  # Evaluates to "positive" or "negative" based on the value of x
+
+	(iii) Statement: A statement is a complete instruction that performs an action or controls the flow of execution within a Python program. Statements are executed sequentially, one after the other, unless control flow statements (e.g., `if`, `while`, `for`, `break`, `continue`, etc.) are used to alter the flow of execution.
+
+		(a) Assignment Statement:
+
+	    	x = 10  # Assigns the value 10 to the variable 'x'
+
+		(b) Conditional Statement (if-elif-else):
+
+	    	if x > 0:
+	    	    print("Positive")
+	    	elif x == 0:
+	    	    print("Zero")
+	    	else:
+	    	    print("Negative")
+
+		(c) Loop Statement (while and for):
+
+	    	i = 0
+	    	while i < 5:
+	    	    print(i)
+	    	    i += 1
+
+	    	for item in [1, 2, 3]:
+	    	    print(item)
+
+		(d) Function Call Statement:
+
+	    	greet("Bob")  # Calls the greet function with the argument "Bob"
+
+	(iv) In summary, declarations introduce identifiers and their associated entities, expressions produce values, and statements perform actions or control the flow of execution within a Python program. Understanding these concepts is crucial for writing clear, concise, and effective Python code.
+
+5. Data Types
 
 	(i) In Python, data types are classifications that specify which type of value a variable can hold. Python is a dynamically-typed language, which means that you don't need to explicitly declare the data type of a variable. The interpreter infers the data type based on the value assigned to the variable. 
 	
@@ -1017,7 +1098,7 @@ Basics:
 			print(type(y))  # <class 'str'>
 			print(type(z))  # <class 'list'>
 
-5. Operators
+6. Operators
 
 	(i) Arithmetic Operators
 
@@ -1087,7 +1168,66 @@ Basics:
 
 			c = 2
 			c **= 3  # Equivalent to c = c ** 3, result is 8
-	
+
+		(i) Walrus Operator `:=`: This is a Special Type of Operator, which works exactly like Equivalent Operator, but It can Assign Value inside Expressions
+
+			(A) The primary purpose of the walrus operator is to assign values to variables as part of an expression, typically within conditional statements or while loops. It allows you to assign a value to a variable and use that variable in the same expression, thereby reducing redundancy and improving code readability.
+
+			(B) Examples:
+
+				name = "John"
+				print(name := "James") # James
+
+				print(name) # James
+
+				# without Walrus
+
+				name = "John"
+				print(name = "James") # Syntax Error
+
+				# Without walrus operator
+				x = 10
+				if x > 5:
+				    print(x)
+
+				# With walrus operator
+				if (x := 10) > 5:
+				    print(x)
+
+			In this example, both code snippets have the same result. However, the second snippet uses the walrus operator to assign the value `10` to the variable `x` within the conditional statement itself.
+
+			The walrus operator can also be used in while loops to combine the assignment of a variable with the condition for the loop:
+
+			```python
+			# Without walrus operator
+			values = [1, 2, 3, 4, 5]
+			index = 0
+			while index < len(values):
+			    print(values[index])
+			    index += 1
+
+			# With walrus operator
+			values = [1, 2, 3, 4, 5]
+			index = 0
+			while (index := index + 1) < len(values):
+			    print(values[index])
+			```
+
+			In this example, the walrus operator is used to increment the `index` variable within the condition of the while loop.
+
+			### Benefits of the Walrus Operator:
+
+			1. **Reduced Redundancy**: It allows you to eliminate redundant code by combining the assignment of a variable with its usage in an expression.
+			2. **Improved Readability**: By assigning values directly within expressions, the walrus operator can make code more concise and easier to understand.
+			3. **Simplified Logic**: It can simplify the logic of certain code constructs, such as conditional statements and loops, by consolidating variable assignments and conditions.
+
+			### Considerations:
+
+			- While the walrus operator can improve code readability in some cases, it should be used judiciously. Overuse of the walrus operator can make code less readable and maintainable.
+			- It's essential to strike a balance between using the walrus operator for clarity and avoiding excessive nesting or complexity in expressions.
+
+			Overall, the walrus operator is a valuable addition to Python syntax, providing a concise and expressive way to handle variable assignments within expressions. However, it should be used thoughtfully to enhance code readability and maintainability.
+
 	(iii) Comparison Operators
 
 		(Note: Comparison Operators return Boolean)
@@ -1175,7 +1315,7 @@ Basics:
 			else:
 			    print("Not eligible to drive a car.")
 	
-6. Type casting
+7. Type casting
 
 	(i) Typecasting, also known as type conversion or type coercion, refers to the process of changing the data type of a variable or value from one type to another. In Python, this can be done explicitly using built-in functions or implicitly in certain situations. Here are the main aspects of typecasting in Python:
 	
@@ -1203,11 +1343,6 @@ Basics:
 
 		(a) Typecasting Between Built-in Types: You can perform typecasting between various built-in types
 		
-7. `input( msg:string )` takes user input in the console/terminal and returns it as a string
-
-	userInput = input('Pick a Number between 1-10 >')
-	print("Your Number is ", userInput)
-
 8. Index
 
 	(i) In Python, an index refers to the position of an element within a data structure, such as a string, list, tuple, or other iterable objects. The index is a numerical value that represents the location of an item in the sequence, and it is used to access or modify individual elements.
@@ -2467,7 +2602,7 @@ Section: Modules
 
 Section: More Concepts
 
-14. try..except
+20. try..except
 	
 	(i) the `try..except` statement is used to handle exceptions or errors that may occur during the execution of a block of code. It allows you to anticipate and gracefully handle errors, preventing the program from crashing.
 
@@ -2518,7 +2653,7 @@ Section: More Concepts
 		finally:
 			print("Ended!")
 
-15. Custom Errors
+21. Custom Errors
 
 	(i) you can raise custom exceptions in Python. This is done by directly using or slightly modifying built-in exceptions.
 
@@ -2550,7 +2685,7 @@ Section: More Concepts
 
 	(iv) 
 
-19. Virtual Environment
+22. Virtual Environment
 
 	(i) A virtual environment in Python is a self-contained directory that encapsulates a specific Python interpreter along with its standard library and additional packages. This allows you to create isolated environments for different projects, each with its own dependencies and configurations. Virtual environments help manage project dependencies, avoid conflicts between different projects, and ensure consistency across different development environments.
 
@@ -2621,7 +2756,7 @@ Section: More Concepts
 
     	(e) Dependency Management: Virtual environments are crucial when working on projects with specific version requirements for libraries, as you can install and manage the required versions easily.
 
-21. Scope
+23. Scope
 
 	(i) In Python, a scope refers to the region of a program where a particular identifier, such as a variable or function name, is accessible. Understanding scopes is crucial for writing clear and bug-free code, as it determines where variables and functions can be accessed and modified within a program. Python has four main types of scopes:
 
@@ -2715,11 +2850,16 @@ Section: More Concepts
 			Inside function: 20
 			Outside function: 20
 
-22. IO
+24. IO
 
 	(i) In Python, Input/Output (I/O) refers to the process of interacting with external sources such as files, the console, network sockets, and other devices. Python provides a rich set of libraries and functions for performing various I/O operations.
 
 	Here's an overview of the main types of I/O operations in Python:
+
+	(ii) `input( msg:string )` takes user input in the console/terminal and returns it as a string
+
+		userInput = input('Pick a Number between 1-10 >')
+		print("Your Number is ", userInput)
 
 	(ii) File I/O: File I/O involves reading from and writing to files on the file system. Python provides built-in functions and methods for file I/O operations.
 
@@ -2866,7 +3006,7 @@ Section: More Concepts
 
 	(vi) Python's I/O capabilities are versatile and comprehensive, making it suitable for a wide range of tasks involving interaction with external sources. Whether you're reading from files, communicating over networks, or interacting with databases, Python provides powerful tools and libraries to handle various I/O operations efficiently.
 
-23. Map, Filter, Reduce
+25. Map, Filter, Reduce
 
 	(i) In Python, `map`, `filter`, and `reduce` are built-in functions that provide functional programming capabilities. They allow you to apply functions to iterables like lists, tuples, or sets in a concise and expressive manner.
 
@@ -2937,7 +3077,7 @@ Section: More Concepts
 			product = reduce(lambda x, y: x * y, numbers)
 			print(product)  # Output: 120 (1*2*3*4*5)
 
-25. General Keywords
+26. General Keywords
 
 	(i) `is`
 
@@ -3008,7 +3148,7 @@ Section: More Concepts
 			print(a == b) # True
 			print(a is b) # True, because `None` is Constant
 
-26. Decorators
+27. Decorators
 
 	(i) Decorators in Python are functions that modify the behavior of other functions or methods. They allow you to add functionality to an existing function or method without modifying its code directly. Decorators are widely used for tasks such as logging, authorization, caching, and more.
 
@@ -3088,7 +3228,7 @@ Section: More Concepts
 
 Section: Object Oriented Programming
 
-27. Classes
+28. Classes
 	
 	(i) In Python, a class is a blueprint for creating objects (instances) that share common attributes and behaviors. It serves as a template that defines the structure and behavior of objects. Classes in Python encapsulate data (attributes) and functions (methods) that operate on that data.
 
