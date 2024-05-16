@@ -1914,17 +1914,93 @@ Basics:
 				
 			print(factorial(5)) # 120
 
+	(x) Generators
+
+		(a) Generators are Function that can return Multiple values and Their Execution can be paused any Time
+
+		(b) Example:-
+
+			def queue(List):
+			    for item in List:
+			        yield item
+
+
+			myList = ['apple', 'banana', 'grapes']
+
+			fruits = queue(myList)
+
+			next(fruits) # apple
+			next(fruits) # banana
+			next(fruits) # grapes
+
+		(c) Generator Functions uses `yield` keyword instead of `return` to return multiple values whenever the function is called
+
+		(d) The Generator Function Returns a `Generator` which can be used to Get data from The Generator
+
+		(d) `next(<Generator>)` Returns the Values from The Generator
+
+	(xi) Memoization
+
+		(a) Memoization is a Method 
+		
+		(b) Example:-
+
+			cache = {}
+
+			def fibbonaci(n):
+			    if(n<2): return n
+
+			    try:
+			        if(cache[str(n)] != None): return cache[str(n)]
+			    except:
+			        pass
+
+			    time.sleep(5)
+			    result = fibbonaci(n-1) + fibbonaci(n-2)
+
+
+				# Storing Them in The Cache
+			    cache[str(n)] = result
+
+			    return result
+
+			print(fibbonaci(2)) # takes Quit a lot of Time
+
+			# Both Runs Instantly due to Cache
+			print(fibbonaci(2))
+			print(fibbonaci(2))
+
+		(c) Python Also Offers Built-in Decorators to Return Values
+
+			import functools
+			import time
+
+			@functools.lru_cache(maxsize=None)
+			def square(n):
+			    time.sleep(5)
+			    return n*n
+
+			# These Takes a Lot of Time
+			print(square(5))
+			print(square(8))
+			print(square(16))
+
+			# These Runs Instantly Due to Cache
+			print(square(5))
+			print(square(8))
+			print(square(16))
+
 	Built in Functions:
 
-	(x) `help(<any>)` takes a Dict/Class/Methods and returns a Explaination about that even including custom Methods/Classes/Dictionaries
+	(xi) `help(<any>)` takes a Dict/Class/Methods and returns a Explaination about that even including custom Methods/Classes/Dictionaries
 
-	(xi) `len(<Variable>)` returns length
+	(xii) `len(<Variable>)` returns length
 
 		a = "Hello, World"
 		
 		print(len(a)) # 12
 		
-	(xii) `type(<Variable>)` type of The Value
+	(xiii) `type(<Variable>)` type of The Value
 
 		a = "Hello, World"
 		b = 12
@@ -1936,7 +2012,7 @@ Basics:
 		print(type(c)) # <class 'float'>
 		print(type(d)) # <class 'bool'>
 
-	(xiii) `enumerate(<Variable>, <index start from?>)`: It's used in Loops to Indentify the Index of values inside The Variable
+	(xiv) `enumerate(<Variable>, <index start from?>)`: It's used in Loops to Indentify the Index of values inside The Variable
 
 		(a) Syntax:
 
@@ -1989,7 +2065,7 @@ Basics:
 			Index: {11} and Value: {685564}
 			Index: {12} and Value: {3}
 		
-	(xiv) `dir(<Value>)`: Returns The Structure of The Value as a List 
+	(xv) `dir(<Value>)`: Returns The Structure of The Value as a List 
 
 Section: Modules
 
@@ -2600,6 +2676,142 @@ Section: Modules
 
 	The `argparse` module provides extensive functionality for handling command-line arguments, including support for positional arguments, optional arguments, default values, type checking, mutually exclusive groups, sub-commands, and more. It is a versatile and powerful tool for creating user-friendly command-line interfaces for your Python applications.	
 
+20. Shutil Module
+
+	(i) Import Shutile Module
+
+		import shutil
+
+	(ii) Methods
+
+		(a) `shutil.copy(<from>, <destination>)` copies the file from <from> and Pastes them at <destination>
+		(b) `shutil.copy2(<from>, <destination>)` copies the file from <from> and Pastes them at <destination>, but preserves MetaData
+		(c) `shutil.copytree(<from>, <destination>)` let's you copy Folders by Recursively Copying files from one place to the other
+
+		(d) `shutil.move(<from>, <destination>)` move the file from <from> to <destination>
+		
+		(e) `shutil.rmtree(<path>)` deletes the Directory by Recursively Deleting Files
+
+		(f) `shutil.disk_usage(<path>)` Return disk usage statistics about the given path as a named tuple with the attributes total, used and free, which are the amount of total, used and free space, in bytes.
+
+		(g) `shutil.chown(<path>, user=<Owner>, group=<GroupOwner>)` Changes the Owner of The File
+		(h) `shutil.which(<cmd>, mode=os.F_OK | os.X_OK, path=None)` shows the Location of a Terminal Command
+
+21. HTTP/XML Requests
+
+	(i) The `requests` module in Python is a powerful and user-friendly library for making HTTP requests. It simplifies the process of sending HTTP requests and processing the responses, making it easy to interact with web services, APIs, and websites.
+
+	Here's a basic overview of the `requests` module and its key features:
+
+	(ii) Installation:
+	   	
+	   	$ pip install requests
+
+	(iii) Examples:-
+	   
+		(a) Making HTTP Requests: The `requests` module provides several functions for making different types of HTTP requests, such as `get()`, `post()`, `put()`, `delete()`, etc.
+
+		   	import requests
+
+		   	# Making a GET request
+		   	response = requests.get('https://api.github.com/users/octocat')
+
+		(b) The response object returned by `requests.get()` contains various attributes and methods for accessing the response data, such as the status code, headers, and content.
+
+		   	print('Status Code:', response.status_code)
+		   	print('Headers:', response.headers)
+		   	print('Content:', response.text)
+
+		(c) You can pass parameters, headers, cookies, and other data with your requests using optional parameters of the request functions.
+
+		   	# Passing query parameters
+		   	response = requests.get('https://api.github.com/search/repositories', params={'q': 'python'})
+
+		   	# Setting custom headers
+		   	headers = {'User-Agent': 'MyApp/1.0'}
+		   	response = requests.get('https://api.github.com/user', headers=headers)
+
+		(d) The `response` object provides various methods and attributes for accessing and processing the response data, such as JSON parsing, content decoding, and file downloading.
+
+			# Handling JSON Reponse Data
+			data = response.json()
+
+		   	# Decoding response content (e.g., for binary data)
+		   	content = response.content
+
+
+		(f) Handling Errors and Exceptions: The `requests` module automatically raises exceptions for common HTTP errors (e.g., 4xx and 5xx status codes), which you can catch and handle as needed.
+
+		   	try:
+		       	response = requests.get('https://example.com/404')
+		       	response.raise_for_status()  # Raises an exception for 4xx and 5xx status codes
+		   	except requests.HTTPError as e:
+		       	print('HTTP Error:', e)
+
+	(iv) Session Objects: `requests.Session` objects allow you to persist certain parameters across multiple requests, such as cookies, headers, and connection pooling.
+
+		with requests.Session() as session:
+			session.headers.update({'User-Agent': 'MyApp/1.0'})
+			response1 = session.get('https://api.github.com/user')
+			response2 = session.get('https://api.github.com/user/repos')
+
+	(v) Request Types (CRUD)
+
+		(a) GET: Read Request
+		(b) POST: Create Request (Supports a Body)
+		(c) PUT: Update Request (Supports a Body)
+		(d) DELETE: Delete Request
+
+		(d) PATCH: Similar to PUT request
+
+	(vi) Request Options
+
+		(a) options are Parameters of `get()`, `post()`, `put()`, `delete()`, etc.
+
+		(b) `url`: URL of the Target.
+		
+		(c) `data`: The Main Body of The Request (Not Supported in `get()`).
+		(d) `json`: The Main Body of The Request but in JSON (Not Supported in `get()`).
+		
+		(e) `headers`: Meta Data about the Request
+		(f) `cookies`: Cookies
+		(g) `files`: Files to be sent as the Main Body
+		(h) `auth`: Authorization Tokens etc.
+
+		(i) `timeout`: Timeout
+		(j) `allow_redirects`: Redirects?
+		(k) `proxies`: Proxy to work as The Middle Man
+		(l) `hooks`
+		(m) `stream`
+		(n) `cert`
+
+	(vii) Reponse
+
+		(a) Reponse is the Object which you obtains after making a Request, here's some Methods and Properties on the Reponse Object
+
+		Meta Data
+		(b) `.status_code`: HTTP Status Code
+		(c) `.ok`: Returns True if Status in in-between 100-299 otherwise False
+		(d) `.headers`: Headers Set by The API
+		(e) `.encoding`: MIME Type of The Reponse
+		(f) `.cookies`: Returns The Cookies Given by the API
+		(g) `.url`: URL of The Request
+		(h) `.close()`: Ends The Request
+		
+		(i) `.elapsed`: Time Passed Since The Request's been Made
+		(j) `.next`: Returns The Next Reponse Object if Redirected
+
+		(Not Supported for GET/DELETE Requests):
+		(k) `.json()`: Parses The Response Data as JSON
+		(m) `.text`: Returns Data in UTF-8 Format
+		(l) `.content`: Returns The Reponse Data in Bytes
+		(m) `.raw`: Returns Raw Data sent from the Server 
+
+		Other
+		(n) `.raise_for_status()`: raises HTTPError if occured		
+
+	(viii) Overall, the `requests` module provides a convenient and intuitive API for working with HTTP requests and responses in Python, making it a popular choice for web scraping, web development, and API integration tasks.
+
 Section: More Concepts
 
 20. try..except
@@ -2938,7 +3150,7 @@ Section: More Concepts
 				with open(<Path>, <mode>) as <File>:
 					<Your Operations Here>
 
-					// no Need to explicitly close the file It'll be automatically closed when exiting this scope
+					# no Need to explicitly close the file It'll be automatically closed when exiting this scope
 		
 		(g) `seek(<position>)` changes the position in the current file, `tell()` returns the current position in the file
 
@@ -3734,7 +3946,7 @@ Section: Object Oriented Programming
 			
 		# Creating an instance of MyClass and calling the static method
 		obj = MyClass("Dave", 36)
-		obj.__dict__ // {'name': 'Dave', 'age': '36', 'class_variable': 10}
+		obj.__dict__ # {'name': 'Dave', 'age': '36', 'class_variable': 10}
 	
 	(xiii) `super` keyword
 
