@@ -132,3 +132,138 @@ def factorial(n):
 # args = parser.parse_args() # Get all The Arguments
 
 # print(f"{args.msg}, My name's {args.name}!")
+# import re
+# from functools import reduce
+
+
+# matchs = re.findall(".", "Hello, World!\n 64")
+# print(matchs) # ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!', ' ', '6', '4']
+
+# matchs = re.findall("\w", "Hello, World!\n 64")
+# print(matchs) # ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd', '6', '4']
+
+# matchs = re.findall("\d", "Hello, World!\n 64")
+# print(matchs) # ['6', '4']
+
+# matchs = re.findall("\s", "Hello, World!\n 64")
+# print(matchs) # [' ', '\n', ' ']
+
+
+# matchs = re.findall("\W", "Hello, World!\n 64")
+# print(matchs) # [',', ' ', '!', '\n', ' ']
+
+# matchs = re.findall("\D", "Hello, World!\n 64")
+# print(matchs) # ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\n', ' ']
+
+# matchs = re.findall("\S", "Hello, World!\n 64")
+# print(matchs) # [' ', '\n', ' ']
+
+
+# import asyncio
+# import time
+
+# async def function1():
+#     await asyncio.sleep(6)
+#     print("Done! function 1")
+# async def function2():
+#     await asyncio.sleep(3)
+#     print("Done! function 2")
+# async def function3():
+#     await asyncio.sleep(4)
+#     print("Done! function 3")
+
+# async def main():
+#     await asyncio.gather(function1(), function2(), function3())
+
+# start = time.time()
+# asyncio.run(main())
+# end = time.time()
+# print("[Async] All Done in", end-start)
+
+# def function1():
+#     time.sleep(6)
+#     print("Done! function 1")
+# def function2():
+#     time.sleep(3)
+#     print("Done! function 2")
+# def function3():
+#     time.sleep(4)
+#     print("Done! function 3")
+
+# def main():
+#     function1()
+#     function2()
+#     function3()
+
+# start = time.time()
+# main()
+# end = time.time()
+
+# print("[Sync] All Done in", end-start)
+
+import multiprocessing.process
+import threading
+
+# thread1 = threading.Thread(target=function1,args=[])
+# thread2 = threading.Thread(target=function2,args=[])
+# thread3 = threading.Thread(target=function3,args=[])
+# start = time.time()
+# thread1.start()
+# thread2.start()
+# thread3.start()
+# print(thread1.join())
+# print(thread2.join())
+# print(thread3.join())
+
+# end = time.time()
+# print("Main Completed in", end-start,"seconds")
+
+# importing modules
+# from concurrent.futures import ThreadPoolExecutor
+# import time
+
+# # Functions to be executed in seperate threads
+
+# def isEven(n, msg):
+#     print(msg)
+#     return True if n%2==0 else False
+
+# numbersTobeChecked = [1, 6, 4, 5, 9]
+# messages = ['W', 'o', 'r', 'l', 'd']
+# max_threads = 5 # set the max amount of thread it can use
+
+# with ThreadPoolExecutor(max_workers=max_threads) as executor:
+#     results = executor.map(isEven, numbersTobeChecked, messages)
+    
+#     results = list(results)
+
+#     for i in range(len(results)):
+#         print(numbersTobeChecked[i], "is even?", results[i])
+
+# Console:
+# 1 is even? False
+# 6 is even? True 
+# 4 is even? True 
+# 5 is even? False
+# 9 is even? False
+
+import multiprocessing
+import time
+
+def function1(n):
+    time.sleep(n)
+    print(f"Slept for {n} seconds!")
+    return "Slept for {n} seconds!"
+
+sleeplist = [5,2,3,7]
+
+processes = []
+if __name__ == "__main__":
+    for i in sleeplist:
+        process = multiprocessing.Process(target=function1, args=[i])
+        process.start()
+        processes.append(process)
+
+
+for process in processes:
+    process.join()
